@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="it">
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAIpAAACKQEamxj2AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAqlJREFUSImllU1IVFEUx3/H+95znHRGTcGKyj4JpAIXVrsWQZsgogzKRbaJog8oahMZU9DK0IUFQouohYtGgrZBRGXt2hmtWkgfQmSONo765r13WqSm+ea9Cf+7e88593/+5557rlAGbp/YuQ/Rl6BDNwc+HCgnZh4VcQ6Z9pZqRB8BlSC7/udwACvOwdjSr7ANQFCjPbSQYHqZo1OXxBRmmZktyDm+lkVw62TLQYWO+XXC8tM4MhyqO5GCGRfERfulX84G5yCmRCKyztgOlu38WUc5LwnUhXuKVKCKWJYNInhFF1VRIA8UlztTObfvEeiDsghEdUnS074ZkwvaFO49ErobStCZubsDP9hbHBlwjOsuqc3pru49iDbnPzYPZrPH/agESxJAkFMIfqTavq0Ze/sGkSQAKi9QbVWb4Wy2PYg7HELurf3JE7N15Hvb2JR7aG2q6pkf6JIsf7n++pmiv6lxlfN6fi/neMN9ly7NlqWg5fP3LWp4tybloPjXK/7ps3RCSCcs4K+AWs/aD7yKVNDZ1X0fpFG0uH1Dfc3udHUNiIbrnoPvB+QLBUYnpoZcrXgr4D28fbVrceBiglGgCa/IxsYUqVXVTE7lIwnm8eXnJL7YADSbKZPJZBbkxc6ilWIxQWzLrYzAyAGgBwkZZLEQBZ6jcmRxeSCkTa/d6W1NVtnvjTH4fnmiJgvuxd4bV+6F2Za1qVVjPosv2SAImPg5dlhLPUZF6xoangKkq5znpcgjB+TRjlOfENkcGhgE04MDj5NR8RAz7OrqatNGwhtN0djPKpYgl8uNg6wuYV4+skMQWqLOru5eQZNefvKYql9fInTWrql9FIj4qfHKy319Zc6iOZxXxDbV6ajkKhXOiEJhtXcDCCUo9ZLdqJP/QTCD5ZUy/gZUPu010dK1UgAAAABJRU5ErkJggg==" />
+  <head>
+    <meta charset="utf-8">
+    <title>MKInfgateForge</title>
+  </head>
+  <body>
+
+<div id="Infgatewebapp">
+    <style type="text/css">
+/* CSS Forge - Versione Atmosfera Compatta */
+#Infgatewebapp {
+    --lava-glow: #ff4500;
+    --lava-dark: #2b0000;
+    --obsidian: #050000;
+    --text-hell: #ffdddd;
+    
+    display: inline-block; /* Non occupa più tutta la larghezza */
+    padding: 8px;          /* L'atmosfera di 8px richiesta */
+    border-radius: 32px;   /* Leggermente più grande della card per seguirne la curva */
+    background: rgba(61, 0, 0, 0.2); /* Sfondo scurissimo e tenue */
+    box-shadow: 0 0 20px rgba(255, 68, 0, 0.2); /* Bagliore esterno soffuso */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: var(--text-hell);
+    margin: 20px;          /* Spazio esterno per non toccare altri elementi */
+}
+
+#Infgatewebapp .forge-card {
+    width: 480px;
+    padding: 40px;
+    background: linear-gradient(145deg, #1a0000, #0a0000);
+    border: 2px solid #ff3300;
+    border-radius: 24px;
+    box-shadow: 0 0 40px rgba(255, 68, 0, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Effetto calore pulsante solo attorno alla card */
+#Infgatewebapp .forge-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 50, 0, 0.08) 0%, transparent 60%);
+    animation: heat-swirl 15s infinite linear;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes heat-swirl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Elementi interni ottimizzati */
+#Infgatewebapp h1 {
+    color: #ff4400;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ff0000;
+    margin-bottom: 25px;
+}
+
+#Infgatewebapp .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#Infgatewebapp label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ff9999;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+#Infgatewebapp input[type="file"], 
+#Infgatewebapp input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #550000;
+    background: rgba(20, 0, 0, 0.9);
+    color: #fff;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+#Infgatewebapp input:focus {
+    border-color: #ff3300;
+    box-shadow: 0 0 8px #ff3300;
+}
+
+#Infgatewebapp #forgeBtn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff4400, #990000);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  /*  cursor: pointer; */
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#Infgatewebapp #forgeBtn:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px #ff4400;
+}
+
+#Infgatewebapp #forgeBtn:active { transform: scale(0.97); }
+
+#Infgatewebapp #status {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+        #Infgatewebapp .success { color: #00ff88; }
+        #Infgatewebapp .error { color: #ff4444; }
+
+        #Infgatewebapp .flame-svg {
+            filter: drop-shadow(0 0 10px #ff4400);
+            margin-bottom: 10px;
+        }
+    </style>
+
+<div class="forge-card">
+        <div class="flame-box">
+		<span class="ClonedElement"></span>
+<svg width="96px" height="96px" viewBox="45 95 110 95">
+  <defs>
+    <radialGradient id="fornaceGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A0522D"/>
+      <stop offset="40%" stop-color="#8B4513"/>
+      <stop offset="100%" stop-color="#5C3317"/>
+    </radialGradient>
+    <linearGradient id="boccaGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#333"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="ombraInterna" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.1)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.4)"/>
+    </radialGradient>
+    <linearGradient id="fumoGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(200,200,200,0.5)"/>
+      <stop offset="100%" stop-color="rgba(200,200,200,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fornace -->
+  <rect x="50" y="100" width="100" height="80" fill="url(#fornaceGradient)" stroke="#5C3317" stroke-width="2" rx="10"/>
+  <rect x="50" y="100" width="100" height="80" fill="url(#ombraInterna)" rx="10"/>
+  <rect x="70" y="130" width="60" height="40" fill="url(#boccaGradient)" rx="5"/>
+  <rect x="50" y="100" width="100" height="10" fill="white" opacity="0.1" rx="10"/>
+
+  <!-- 5 fiamme stratificate -->
+  <!-- Fiamma 1 -->
+  <path d="M85 170 C83 150, 87 150, 85 170" fill="#8B0000" filter="url(#glow)">
+    <animate attributeName="d" values="M85 170 C83 150, 87 150, 85 170; M85 170 C82 148, 88 148, 85 170; M85 170 C84 152, 86 152, 85 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M85 170 C83.5 152, 86.5 152, 85 170" fill="orange" filter="url(#glow)">
+    <animate attributeName="d" values="M85 170 C83.5 152, 86.5 152, 85 170; M85 170 C82 149, 88 149, 85 170; M85 170 C84 153, 86 153, 85 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M85 170 C84 155, 86 155, 85 170" fill="yellow" filter="url(#glow)">
+    <animate attributeName="d" values="M85 170 C84 155, 86 155, 85 170; M85 170 C82 152, 88 152, 85 170; M85 170 C85 157, 85 157, 85 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Fiamma 2 -->
+  <path d="M90 170 C88 148, 92 148, 90 170" fill="#8B0000" filter="url(#glow)">
+    <animate attributeName="d" values="M90 170 C88 148, 92 148, 90 170; M90 170 C87 145, 93 145, 90 170; M90 170 C89 150, 91 150, 90 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M90 170 C88.5 150, 91.5 150, 90 170" fill="orange" filter="url(#glow)">
+    <animate attributeName="d" values="M90 170 C88.5 150, 91.5 150, 90 170; M90 170 C87 147, 93 147, 90 170; M90 170 C89 152, 91 152, 90 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M90 170 C89 150, 91 150, 90 170" fill="yellow" filter="url(#glow)">
+    <animate attributeName="d" values="M90 170 C89 150, 91 150, 90 170; M90 170 C87 147, 93 147, 90 170; M90 170 C90 152, 90 152, 90 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Fiamma 3 (centrale) -->
+  <path d="M100 170 C88 145, 112 145, 100 170" fill="#8B0000" filter="url(#glow)">
+    <animate attributeName="d" values="M100 170 C88 145, 112 145, 100 170; M100 170 C85 140, 115 140, 100 170; M100 170 C87 142, 113 142, 100 170" dur="0.9s" repeatCount="indefinite"/>
+  </path>
+  <path d="M100 170 C90 145, 110 145, 100 170" fill="orange" filter="url(#glow)">
+    <animate attributeName="d" values="M100 170 C90 145, 110 145, 100 170; M100 170 C85 140, 115 140, 100 170; M100 170 C87 143, 113 143, 100 170" dur="0.9s" repeatCount="indefinite"/>
+  </path>
+  <path d="M100 170 C92 145, 108 145, 100 170" fill="yellow" filter="url(#glow)">
+    <animate attributeName="d" values="M100 170 C92 145, 108 145, 100 170; M100 170 C87 140, 113 140, 100 170; M100 170 C90 143, 110 143, 100 170" dur="0.9s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Fiamma 4 -->
+  <path d="M110 170 C108 148, 112 148, 110 170" fill="#8B0000" filter="url(#glow)">
+    <animate attributeName="d" values="M110 170 C108 148, 112 148, 110 170; M110 170 C107 145, 113 145, 110 170; M110 170 C109 150, 111 150, 110 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M110 170 C108.5 150, 111.5 150, 110 170" fill="orange" filter="url(#glow)">
+    <animate attributeName="d" values="M110 170 C108.5 150, 111.5 150, 110 170; M110 170 C107 147, 113 147, 110 170; M110 170 C109 152, 111 152, 110 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M110 170 C109 150, 111 150, 110 170" fill="yellow" filter="url(#glow)">
+    <animate attributeName="d" values="M110 170 C109 150, 111 150, 110 170; M110 170 C107 147, 113 147, 110 170; M110 170 C110 152, 110 152, 110 170" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Fiamma 5 -->
+  <path d="M115 170 C113 150, 117 150, 115 170" fill="#8B0000" filter="url(#glow)">
+    <animate attributeName="d" values="M115 170 C113 150, 117 150, 115 170; M115 170 C112 145, 118 145, 115 170; M115 170 C114 152, 116 152, 115 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M115 170 C113.5 152, 116.5 152, 115 170" fill="orange" filter="url(#glow)">
+    <animate attributeName="d" values="M115 170 C113.5 152, 116.5 152, 115 170; M115 170 C112 149, 118 149, 115 170; M115 170 C114 155, 116 155, 115 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M115 170 C114 155, 116 155, 115 170" fill="yellow" filter="url(#glow)">
+    <animate attributeName="d" values="M115 170 C114 155, 116 155, 115 170; M115 170 C112 152, 118 152, 115 170; M115 170 C115 157, 115 157, 115 170" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Fumo realistico -->
+  <path d="M85 130 C90 120, 110 120, 115 130" stroke="url(#fumoGrad)" stroke-width="3" fill="none" opacity="0.6">
+    <animate attributeName="d" values="
+      M85 130 C90 120, 110 120, 115 130;
+      M85 130 C88 115, 112 115, 115 130;
+      M85 130 C90 118, 110 118, 115 130" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.3;0.5;0.6" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <path d="M90 130 C95 118, 105 118, 110 130" stroke="url(#fumoGrad)" stroke-width="2" fill="none" opacity="0.5">
+    <animate attributeName="d" values="
+      M90 130 C95 118, 105 118, 110 130;
+      M90 130 C93 114, 107 114, 110 130;
+      M90 130 C95 116, 105 116, 110 130" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.2;0.4;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+</svg>
+<span class="ClonedElement"></span>
+        </div>
+
+        <h1>MKInfGate Forge</h1>
+
+        <p style="font-size: 0.55rem; color: #ffaaaa; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; margin: -15px 0 25px 0; padding: 10px; border-left: 2px solid #ff3300; background: rgba(255,0,0,0.05); text-align: left; font-weight: bold;">
+            <span style="color: #ff3300; display: block; margin-bottom: 3px;">⚠️ BRIEFING OPERATIVO:</span>
+            Soldato! Il tuo intel è sotto minaccia costante. Vuoi blindare i tuoi asset HTML contro infiltrazioni nemiche? Questa forgia trasforma il tuo codice in un bunker d'ossidiana impenetrabile. Neutralizza lo spionaggio, sigilla i segreti e domina il settore (<em>obbligatorio https/ssl/tls</em>). ORDINI CHIARI: CRIPTA O SEI FUORI!
+        </p>
+        
+        <div class="input-group">
+            <label>Sorgente HTML da sigillare:</label>
+            <input type="file" id="fileInput" accept=".html">
+        </div>
+
+        <div class="input-group">
+            <label>Chiave Arcania (Password min. 16 ch):</label>
+            <input type="password" id="passwordInput" placeholder="Inserisci password robusta...">
+        </div>
+
+        <button id="forgeBtn" onclick="forgeGate()">&#127981; FORGIA LA GATE CRITTOGRAFATA</button>
+        <div id="status"></div>
+    </div>
+
+<script type="text/javascript">
+// ─── ANIMAZIONI: iniettate una sola volta nel <head> ───────────────────────
+function injectTorciaStyles() {
+    if (document.getElementById('torcia-keyframes')) return; // già iniettate
+    const style = document.createElement('style');
+    style.id = 'torcia-keyframes';
+    style.textContent = `
+        @keyframes flicker1 {
+            0%   { d: path("M340,420 C295,390 248,350 255,285 C260,235 285,190 315,165 C325,155 330,148 340,130 C350,148 355,155 365,165 C395,190 420,235 425,285 C432,350 385,390 340,420Z"); }
+            12%  { d: path("M340,422 C290,395 245,352 252,283 C256,230 282,185 312,158 C323,148 329,140 340,122 C351,140 357,148 368,158 C398,185 424,230 428,283 C435,352 390,395 340,422Z"); }
+            25%  { d: path("M340,418 C298,388 252,348 260,287 C265,238 290,195 318,170 C328,160 333,152 340,135 C347,152 352,160 362,170 C390,195 415,238 420,287 C428,348 382,388 340,418Z"); }
+            38%  { d: path("M340,421 C288,392 243,348 250,280 C255,228 280,182 310,155 C321,145 328,136 340,118 C352,136 359,145 370,155 C400,182 425,228 430,280 C437,348 392,392 340,421Z"); }
+            50%  { d: path("M340,419 C292,391 246,345 254,282 C259,232 284,186 314,160 C324,150 330,142 340,124 C350,142 356,150 366,160 C396,186 421,232 426,282 C434,345 388,391 340,419Z"); }
+            63%  { d: path("M340,423 C285,396 240,350 248,278 C252,225 278,178 308,152 C319,142 326,133 340,116 C354,133 361,142 372,152 C402,178 428,225 432,278 C440,350 395,396 340,423Z"); }
+            75%  { d: path("M340,417 C296,387 250,344 258,283 C263,234 288,190 316,165 C326,155 332,147 340,130 C348,147 354,155 364,165 C392,190 417,234 422,283 C430,344 384,387 340,417Z"); }
+            88%  { d: path("M340,420 C293,393 247,349 255,284 C260,234 285,188 314,162 C324,152 330,144 340,126 C350,144 356,152 366,162 C395,188 420,234 425,284 C433,349 387,393 340,420Z"); }
+            100% { d: path("M340,420 C295,390 248,350 255,285 C260,235 285,190 315,165 C325,155 330,148 340,130 C350,148 355,155 365,165 C395,190 420,235 425,285 C432,350 385,390 340,420Z"); }
+        }
+        @keyframes flicker-core {
+            0%   { d: path("M340,405 C315,380 295,350 298,305 C302,270 318,240 330,218 C334,210 337,204 340,192 C343,204 346,210 350,218 C362,240 378,270 382,305 C385,350 365,380 340,405Z"); }
+            15%  { d: path("M340,408 C312,382 292,350 295,302 C299,265 315,234 328,212 C332,204 336,197 340,185 C344,197 348,204 352,212 C365,234 381,265 385,302 C388,350 368,382 340,408Z"); }
+            30%  { d: path("M340,403 C318,378 298,346 302,306 C306,272 322,243 333,221 C337,213 339,207 340,196 C341,207 343,213 347,221 C358,243 374,272 378,306 C382,346 362,378 340,403Z"); }
+            50%  { d: path("M340,407 C310,383 290,348 293,300 C297,263 313,232 326,210 C330,202 335,195 340,183 C345,195 350,202 354,210 C367,232 383,263 387,300 C390,348 370,383 340,407Z"); }
+            70%  { d: path("M340,404 C316,380 296,347 300,304 C304,269 320,240 332,219 C336,211 338,205 340,193 C342,205 344,211 348,219 C360,240 376,269 380,304 C384,347 364,380 340,404Z"); }
+            85%  { d: path("M340,409 C308,384 288,351 291,299 C295,261 311,230 325,208 C329,200 334,193 340,181 C346,193 351,200 355,208 C369,230 385,261 389,299 C392,351 372,384 340,409Z"); }
+            100% { d: path("M340,405 C315,380 295,350 298,305 C302,270 318,240 330,218 C334,210 337,204 340,192 C343,204 346,210 350,218 C362,240 378,270 382,305 C385,350 365,380 340,405Z"); }
+        }
+        @keyframes flicker-l {
+            0%   { d: path("M302,418 C268,395 248,360 252,308 C256,268 268,240 280,218 C287,206 291,198 297,186 C305,200 310,210 312,228 C320,260 322,295 318,328 C314,362 308,392 302,418Z"); opacity:0.88; }
+            20%  { d: path("M300,416 C264,392 244,355 248,305 C252,263 265,234 278,212 C285,200 289,191 296,180 C304,195 309,206 311,225 C319,258 321,293 316,326 C311,360 305,388 300,416Z"); opacity:0.82; }
+            45%  { d: path("M304,420 C270,398 251,362 255,311 C259,271 272,243 283,221 C290,209 294,200 300,188 C308,202 313,213 315,231 C323,263 325,298 320,331 C316,365 310,395 304,420Z"); opacity:0.9; }
+            70%  { d: path("M299,415 C263,390 242,353 246,302 C250,260 263,231 275,209 C282,197 286,188 293,177 C301,192 306,203 308,222 C316,255 318,291 313,324 C308,358 303,386 299,415Z"); opacity:0.78; }
+            100% { d: path("M302,418 C268,395 248,360 252,308 C256,268 268,240 280,218 C287,206 291,198 297,186 C305,200 310,210 312,228 C320,260 322,295 318,328 C314,362 308,392 302,418Z"); opacity:0.88; }
+        }
+        @keyframes flicker-r {
+            0%   { d: path("M378,418 C412,395 432,360 428,308 C424,268 412,240 400,218 C393,206 389,198 383,186 C375,200 370,210 368,228 C360,260 358,295 362,328 C366,362 372,392 378,418Z"); opacity:0.82; }
+            25%  { d: path("M380,416 C415,392 435,356 431,304 C427,264 414,235 402,213 C395,201 391,192 384,181 C376,196 371,207 369,226 C361,259 359,294 363,327 C368,361 374,389 380,416Z"); opacity:0.75; }
+            50%  { d: path("M376,420 C410,398 429,362 425,310 C421,270 408,242 397,220 C390,208 386,199 379,187 C371,202 366,212 364,231 C356,263 354,298 358,331 C363,365 369,395 376,420Z"); opacity:0.88; }
+            75%  { d: path("M381,417 C416,393 437,356 432,304 C428,262 415,233 403,211 C396,199 392,190 385,179 C377,194 372,205 370,224 C362,257 360,293 365,326 C370,360 375,388 381,417Z"); opacity:0.7; }
+            100% { d: path("M378,418 C412,395 432,360 428,308 C424,268 412,240 400,218 C393,206 389,198 383,186 C375,200 370,210 368,228 C360,260 358,295 362,328 C366,362 372,392 378,418Z"); opacity:0.82; }
+        }
+        @keyframes flicker-tip {
+            0%   { d: path("M340,130 C330,115 325,100 327,82 C329,68 335,58 340,50 C345,58 351,68 353,82 C355,100 350,115 340,130Z"); opacity:0.7; }
+            20%  { d: path("M340,122 C329,106 323,90 325,72 C327,57 333,47 340,38 C347,47 353,57 355,72 C357,90 351,106 340,122Z"); opacity:0.85; }
+            40%  { d: path("M340,128 C332,112 327,96 329,78 C331,63 337,53 340,44 C343,53 349,63 351,78 C353,96 348,112 340,128Z"); opacity:0.65; }
+            60%  { d: path("M340,124 C330,108 325,91 327,73 C329,58 334,48 340,39 C346,48 351,58 353,73 C355,91 350,108 340,124Z"); opacity:0.9; }
+            80%  { d: path("M340,132 C328,117 323,101 325,83 C327,68 333,58 340,49 C347,58 353,68 355,83 C357,101 352,117 340,132Z"); opacity:0.72; }
+            100% { d: path("M340,130 C330,115 325,100 327,82 C329,68 335,58 340,50 C345,58 351,68 353,82 C355,100 350,115 340,130Z"); opacity:0.7; }
+        }
+        @keyframes spark1 {
+            0%   { transform: translate(0,0) scale(1); opacity:1; }
+            60%  { opacity:0.7; }
+            100% { transform: translate(-38px,-90px) scale(0.2); opacity:0; }
+        }
+        @keyframes spark2 {
+            0%   { transform: translate(0,0) scale(1); opacity:1; }
+            100% { transform: translate(30px,-110px) scale(0.15); opacity:0; }
+        }
+        @keyframes spark3 {
+            0%   { transform: translate(0,0) scale(1); opacity:0.9; }
+            100% { transform: translate(-18px,-75px) scale(0.1); opacity:0; }
+        }
+        @keyframes spark4 {
+            0%   { transform: translate(0,0) scale(1); opacity:0.85; }
+            100% { transform: translate(24px,-85px) scale(0.1); opacity:0; }
+        }
+        @keyframes spark5 {
+            0%   { transform: translate(0,0) scale(1); opacity:0.95; }
+            100% { transform: translate(-8px,-100px) scale(0.1); opacity:0; }
+        }
+        @keyframes spark6 {
+            0%   { transform: translate(0,0) scale(1); opacity:0.8; }
+            100% { transform: translate(44px,-68px) scale(0.15); opacity:0; }
+        }
+        @keyframes smoke1 {
+            0%   { transform: translate(0,0) scale(0.6); opacity:0.35; }
+            50%  { transform: translate(-12px,-55px) scale(1.3); opacity:0.22; }
+            100% { transform: translate(-22px,-110px) scale(2); opacity:0; }
+        }
+        @keyframes smoke2 {
+            0%   { transform: translate(0,0) scale(0.5); opacity:0.28; }
+            50%  { transform: translate(10px,-50px) scale(1.1); opacity:0.18; }
+            100% { transform: translate(18px,-105px) scale(1.8); opacity:0; }
+        }
+        @keyframes smoke3 {
+            0%   { transform: translate(0,0) scale(0.55); opacity:0.32; }
+            50%  { transform: translate(-5px,-48px) scale(1.2); opacity:0.2; }
+            100% { transform: translate(-10px,-100px) scale(1.9); opacity:0; }
+        }
+        @keyframes halo-pulse {
+            0%,100% { opacity:0.85; r:110; }
+            50%      { opacity:1;    r:118; }
+        }
+        @keyframes inner-glow {
+            0%,100% { opacity:0.9; }
+            40%     { opacity:0.75; }
+            70%     { opacity:1; }
+        }
+        @keyframes embr {
+            0%,100% { opacity:0.88; }
+            50%     { opacity:0.72; }
+        }
+
+        /* ── Classi di animazione usate nell'SVG ── */
+        .flame-main  { animation: flicker1      0.38s ease-in-out infinite alternate; }
+        .flame-core  { animation: flicker-core  0.31s ease-in-out infinite alternate; }
+        .flame-l     { animation: flicker-l     0.44s ease-in-out infinite alternate; }
+        .flame-r     { animation: flicker-r     0.41s ease-in-out infinite alternate; }
+        .flame-tip   { animation: flicker-tip   0.27s ease-in-out infinite alternate; }
+        .sp1 { animation: spark1 1.4s ease-out infinite; animation-delay: 0.2s; }
+        .sp2 { animation: spark2 1.8s ease-out infinite; animation-delay: 0.7s; }
+        .sp3 { animation: spark3 1.1s ease-out infinite; animation-delay: 0.0s; }
+        .sp4 { animation: spark4 1.6s ease-out infinite; animation-delay: 1.1s; }
+        .sp5 { animation: spark5 2.1s ease-out infinite; animation-delay: 0.4s; }
+        .sp6 { animation: spark6 1.3s ease-out infinite; animation-delay: 0.9s; }
+        .sm1 { animation: smoke1 2.8s ease-out infinite; animation-delay: 0.0s; }
+        .sm2 { animation: smoke2 3.3s ease-out infinite; animation-delay: 1.2s; }
+        .sm3 { animation: smoke3 2.5s ease-out infinite; animation-delay: 0.6s; }
+        .halo-anim { animation: halo-pulse  0.55s ease-in-out infinite alternate; }
+        .iglow     { animation: inner-glow  0.35s ease-in-out infinite alternate; }
+        .embr      { animation: embr        0.60s ease-in-out infinite alternate; }
+    `;
+    document.head.appendChild(style);
+}
+
+// ─── SVG (senza il blocco <style> interno) ──────────────────────────────────
+const elementoDaClonare = `
+<svg width="64px" viewBox="0 0 680 820">
+<defs>
+  <linearGradient id="wood1" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#3B1F0A"/>
+    <stop offset="18%"  stop-color="#6B3A1A"/>
+    <stop offset="40%"  stop-color="#8B4A22"/>
+    <stop offset="55%"  stop-color="#A0572A"/>
+    <stop offset="70%"  stop-color="#7A3F18"/>
+    <stop offset="85%"  stop-color="#5C2E10"/>
+    <stop offset="100%" stop-color="#3B1F0A"/>
+  </linearGradient>
+  <linearGradient id="cloth1" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#1A0A02"/>
+    <stop offset="20%"  stop-color="#4A2008"/>
+    <stop offset="45%"  stop-color="#6B3510"/>
+    <stop offset="65%"  stop-color="#5A2A0C"/>
+    <stop offset="85%"  stop-color="#3A1A06"/>
+    <stop offset="100%" stop-color="#1A0A02"/>
+  </linearGradient>
+  <linearGradient id="ember" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0%"   stop-color="#8B1A00"/>
+    <stop offset="35%"  stop-color="#CC3300"/>
+    <stop offset="60%"  stop-color="#FF6600"/>
+    <stop offset="80%"  stop-color="#FF9900"/>
+    <stop offset="100%" stop-color="#FFCC00"/>
+  </linearGradient>
+  <radialGradient id="glow-center" cx="50%" cy="60%" r="50%">
+    <stop offset="0%"   stop-color="#FFEEAA" stop-opacity="1"/>
+    <stop offset="30%"  stop-color="#FFCC33" stop-opacity="0.9"/>
+    <stop offset="60%"  stop-color="#FF7700" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#FF2200" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="handle-light" cx="50%" cy="0%" r="70%">
+    <stop offset="0%"   stop-color="#FF8800" stop-opacity="0.55"/>
+    <stop offset="40%"  stop-color="#FF6600" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#FF4400" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#FF9900" stop-opacity="0.45"/>
+    <stop offset="40%"  stop-color="#FF6600" stop-opacity="0.18"/>
+    <stop offset="70%"  stop-color="#FF3300" stop-opacity="0.07"/>
+    <stop offset="100%" stop-color="#FF0000" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="flame-main" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0%"   stop-color="#FF4400"/>
+    <stop offset="20%"  stop-color="#FF6600"/>
+    <stop offset="45%"  stop-color="#FFAA00"/>
+    <stop offset="65%"  stop-color="#FFDD44"/>
+    <stop offset="82%"  stop-color="#FFEEAA"/>
+    <stop offset="100%" stop-color="#FFFFF0" stop-opacity="0.6"/>
+  </linearGradient>
+  <linearGradient id="flame-core" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0%"   stop-color="#FF8800"/>
+    <stop offset="30%"  stop-color="#FFCC44"/>
+    <stop offset="55%"  stop-color="#FFEE99"/>
+    <stop offset="80%"  stop-color="#FFFDE0"/>
+    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+  </linearGradient>
+  <linearGradient id="flame-side" x1="0" y1="1" x2="0" y2="0">
+    <stop offset="0%"   stop-color="#CC2200"/>
+    <stop offset="30%"  stop-color="#FF5500"/>
+    <stop offset="60%"  stop-color="#FF9900"/>
+    <stop offset="85%"  stop-color="#FFCC44" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#FFEEAA" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="wrap-shadow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#000000" stop-opacity="0.5"/>
+    <stop offset="50%"  stop-color="#000000" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.45"/>
+  </linearGradient>
+  <linearGradient id="wood-shine" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#000000" stop-opacity="0.4"/>
+    <stop offset="30%"  stop-color="#FF9944" stop-opacity="0.12"/>
+    <stop offset="50%"  stop-color="#FFC566" stop-opacity="0.25"/>
+    <stop offset="65%"  stop-color="#FF9944" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+  </linearGradient>
+  <radialGradient id="spark-g">
+    <stop offset="0%"   stop-color="#FFEE88"/>
+    <stop offset="100%" stop-color="#FF6600" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="smoke-g" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#888877" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#666655" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<ellipse cx="340" cy="370" rx="200" ry="260" fill="url(#halo)" opacity="0.7"/>
+<ellipse class="halo-anim" cx="340" cy="310" rx="110" ry="130" fill="#FF8800" opacity="0.18"/>
+<ellipse cx="340" cy="320" rx="75" ry="90" fill="#FFAA00" opacity="0.12"/>
+
+<ellipse class="sm1" cx="335" cy="50" rx="16" ry="12" fill="url(#smoke-g)"/>
+<ellipse class="sm2" cx="345" cy="55" rx="13" ry="10" fill="url(#smoke-g)"/>
+<ellipse class="sm3" cx="340" cy="48" rx="14" ry="11" fill="url(#smoke-g)"/>
+
+<circle class="sp1" cx="318" cy="145" r="2.5" fill="#FFEE44"/>
+<circle class="sp2" cx="360" cy="152" r="2"   fill="#FFDD22"/>
+<circle class="sp3" cx="328" cy="160" r="1.8" fill="#FFCC44"/>
+<circle class="sp4" cx="352" cy="148" r="2.2" fill="#FFEE66"/>
+<circle class="sp5" cx="340" cy="140" r="1.5" fill="#FFFFAA"/>
+<circle class="sp6" cx="305" cy="170" r="1.7" fill="#FFCC22"/>
+
+<path class="flame-l" fill="url(#flame-side)" opacity="0.88"
+  d="M302,418 C268,395 248,360 252,308 C256,268 268,240 280,218 C287,206 291,198 297,186 C305,200 310,210 312,228 C320,260 322,295 318,328 C314,362 308,392 302,418Z"/>
+<path class="flame-r" fill="url(#flame-side)" opacity="0.82"
+  d="M378,418 C412,395 432,360 428,308 C424,268 412,240 400,218 C393,206 389,198 383,186 C375,200 370,210 368,228 C360,260 358,295 362,328 C366,362 372,392 378,418Z"/>
+
+<path class="flame-main" fill="url(#flame-main)"
+  d="M340,420 C295,390 248,350 255,285 C260,235 285,190 315,165 C325,155 330,148 340,130 C350,148 355,155 365,165 C395,190 420,235 425,285 C432,350 385,390 340,420Z"/>
+
+<path class="flame-core" fill="url(#flame-core)" opacity="0.9"
+  d="M340,405 C315,380 295,350 298,305 C302,270 318,240 330,218 C334,210 337,204 340,192 C343,204 346,210 350,218 C362,240 378,270 382,305 C385,350 365,380 340,405Z"/>
+
+<path class="flame-tip" fill="#FFEECC" opacity="0.7"
+  d="M340,130 C330,115 325,100 327,82 C329,68 335,58 340,50 C345,58 351,68 353,82 C355,100 350,115 340,130Z"/>
+
+<ellipse class="iglow" cx="340" cy="300" rx="32" ry="50" fill="url(#glow-center)" opacity="0.9"/>
+<ellipse class="iglow" cx="340" cy="330" rx="18" ry="28" fill="#FFFFEE" opacity="0.55"/>
+
+<rect x="294" y="418" width="92" height="350" rx="10" fill="url(#handle-light)" opacity="0.75"/>
+
+<rect x="286" y="418" width="108" height="90" rx="8" fill="#1A0800"/>
+<rect x="286" y="418" width="108" height="90" rx="8" fill="url(#cloth1)"/>
+<rect x="286" y="418" width="108" height="90" rx="8" fill="url(#wrap-shadow)"/>
+<line x1="286" y1="432" x2="394" y2="432" stroke="#0A0400" stroke-width="1.5" opacity="0.6"/>
+<line x1="286" y1="446" x2="394" y2="446" stroke="#0A0400" stroke-width="1.8" opacity="0.65"/>
+<line x1="286" y1="460" x2="394" y2="460" stroke="#0A0400" stroke-width="1.5" opacity="0.6"/>
+<line x1="286" y1="474" x2="394" y2="474" stroke="#0A0400" stroke-width="1.8" opacity="0.65"/>
+<line x1="286" y1="488" x2="394" y2="488" stroke="#0A0400" stroke-width="1.5" opacity="0.55"/>
+<line x1="286" y1="502" x2="394" y2="502" stroke="#0A0400" stroke-width="1.5" opacity="0.5"/>
+<rect x="286" y="418" width="108" height="55" rx="8" fill="#FF6600" opacity="0.18"/>
+<rect class="embr" x="290" y="420" width="100" height="18" rx="5" fill="url(#ember)" opacity="0.75"/>
+<rect class="embr" x="294" y="421" width="92"  height="10" rx="4" fill="#FFCC44" opacity="0.45"/>
+<ellipse cx="296" cy="463" rx="5" ry="7" fill="#2A1005" opacity="0.8"/>
+<ellipse cx="384" cy="451" rx="4" ry="6" fill="#2A1005" opacity="0.7"/>
+<rect x="284" y="504" width="112" height="8" rx="4" fill="#3A1A08" stroke="#1A0800" stroke-width="1"/>
+
+<rect x="282" y="506" width="116" height="14" rx="4" fill="#2A1508"/>
+<rect x="284" y="507" width="112" height="12" rx="3" fill="#3D2010"/>
+<rect x="288" y="506" width="104" height="7"  rx="3" fill="#1A0A03" opacity="0.6"/>
+<line x1="290" y1="510" x2="390" y2="510" stroke="#6B4020" stroke-width="1.5" opacity="0.5"/>
+<line x1="290" y1="513" x2="390" y2="513" stroke="#8B5535" stroke-width="0.8" opacity="0.35"/>
+
+<rect x="306" y="520" width="68" height="270" rx="6" fill="url(#wood1)"/>
+<rect x="306" y="520" width="68" height="270" rx="6" fill="url(#wood-shine)"/>
+<line x1="322" y1="525" x2="318" y2="785" stroke="#4A2208" stroke-width="0.7" opacity="0.5"/>
+<line x1="336" y1="522" x2="334" y2="788" stroke="#3A1A06" stroke-width="0.5" opacity="0.4"/>
+<line x1="350" y1="524" x2="352" y2="786" stroke="#4A2208" stroke-width="0.6" opacity="0.45"/>
+<line x1="363" y1="526" x2="360" y2="785" stroke="#3A1A06" stroke-width="0.5" opacity="0.35"/>
+<line x1="328" y1="522" x2="324" y2="788" stroke="#5A2A0E" stroke-width="0.4" opacity="0.3"/>
+<ellipse cx="340" cy="640" rx="11" ry="7" fill="none" stroke="#2A1005" stroke-width="0.8" opacity="0.45"/>
+<ellipse cx="340" cy="640" rx="7"  ry="4" fill="none" stroke="#3A1A06" stroke-width="0.5" opacity="0.35"/>
+<rect x="306" y="520" width="10" height="270" rx="3" fill="#000000" opacity="0.25"/>
+<rect x="364" y="520" width="10" height="270" rx="3" fill="#000000" opacity="0.22"/>
+<rect x="306" y="520" width="68" height="90"  rx="4" fill="#FF8800"  opacity="0.09"/>
+
+<rect x="303" y="655" width="74" height="16" rx="3" fill="#3A1A06"/>
+<rect x="305" y="656" width="70" height="14" rx="2" fill="#4A2A0C"/>
+<rect x="307" y="658" width="66" height="5"  rx="1" fill="#6B4020" opacity="0.5"/>
+<line x1="307" y1="661" x2="373" y2="661" stroke="#8B5530" stroke-width="1" opacity="0.4"/>
+<rect x="303" y="669" width="74" height="4" rx="2" fill="#2A1005" opacity="0.6"/>
+
+<rect x="316" y="788" width="48" height="14" rx="4" fill="#2A1005"/>
+<polygon points="316,800 340,818 364,800" fill="#1A0A03"/>
+<polygon points="320,800 340,812 360,800" fill="#2A1208"/>
+<ellipse cx="340" cy="800" rx="24" ry="6" fill="#3A1A06"/>
+<ellipse cx="340" cy="800" rx="20" ry="4" fill="#4A2510"/>
+<line x1="326" y1="800" x2="354" y2="800" stroke="#6B4020" stroke-width="1.2" opacity="0.5"/>
+</svg>
+`;
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. Inietta i keyframes nel <head> del documento (una volta sola)
+    injectTorciaStyles();
+
+    // 2. Popola tutti i placeholder
+    const placeholders = document.querySelectorAll('.ClonedElement');
+    console.log("Elementi trovati:", placeholders.length);
+
+    if (placeholders.length === 0) {
+        console.warn("Nessun tag con classe 'ClonedElement' trovato.");
+    }
+
+    placeholders.forEach((placeholder, index) => {
+        placeholder.innerHTML = elementoDaClonare;
+        console.log(`Torcia ${index + 1} iniettata con successo!`);
+    });
+});
+</script>
+
+    <script type="text/javascript">
+(function() {
+        "use strict";
+        const PBKDF2_ITER = 1000000;
+
+        window.forgeGate = async function() {
+		
+			if (!window.isSecureContext || !window.crypto.subtle) {
+                alert("ERRORE CRITICO: Questa webapp richiede HTTPS o Localhost per funzionare (Secure Context mancante).");
+                return;
+            }
+		
+            const container = document.getElementById('Infgatewebapp');
+            const fileInput = container.querySelector('#fileInput');
+            const passwordInput = container.querySelector('#passwordInput');
+            const status = container.querySelector('#status');
+            const btn = container.querySelector('#forgeBtn');
+			
+
+            if (!fileInput.files[0] || passwordInput.value.length < 16) {
+                status.className = "error";
+                status.textContent = "Errore: Password troppo corta o file mancante.";
+                return;
+            }
+
+            try {
+                btn.disabled = true;
+                status.className = "";
+                status.textContent = "🔥 Forgiatura in corso (Derivazione AES-256)...";
+
+                const file = fileInput.files[0];
+                const plaintext = new Uint8Array(await file.arrayBuffer());
+                const password = new TextEncoder().encode(passwordInput.value);
+                
+                const salt = window.crypto.getRandomValues(new Uint8Array(16));
+                const nonce = window.crypto.getRandomValues(new Uint8Array(12));
+
+                const baseKey = await window.crypto.subtle.importKey("raw", password, "PBKDF2", false, ["deriveKey"]);
+                const derivedKey = await window.crypto.subtle.deriveKey(
+                    { name: "PBKDF2", salt: salt, iterations: PBKDF2_ITER, hash: "SHA-256" },
+                    baseKey,
+                    { name: "AES-GCM", length: 256 },
+                    false,
+                    ["encrypt"]
+                );
+
+                const encryptedBuffer = await window.crypto.subtle.encrypt(
+                    { name: "AES-GCM", iv: nonce },
+                    derivedKey,
+                    plaintext
+                );
+
+                const ciphertext = new Uint8Array(encryptedBuffer.slice(0, encryptedBuffer.byteLength - 16));
+                const tag = new Uint8Array(encryptedBuffer.slice(encryptedBuffer.byteLength - 16));
+                
+                // 1. GENERAZIONE OUTPUT BASE
+                const rawHtml = generateOutput(
+                    arrayBufferToBase64(salt),
+                    arrayBufferToBase64(nonce),
+                    arrayBufferToBase64(ciphertext),
+                    arrayBufferToBase64(tag),
+                    PBKDF2_ITER
+                );
+
+                // 2. APPLICAZIONE OFFUSCAMENTO (Tactical Camouflage)
+                status.textContent = "🛡️ Applicando mimetizzazione tattica (Obfuscation)...";
+                const finalObfuscatedHtml = applyTacticalCamouflage(rawHtml);
+
+                // 3. CREAZIONE BLOB E DOWNLOAD UNICO
+                const blob = new Blob([finalObfuscatedHtml], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `gate_${file.name}`;
+                a.click();
+
+                status.className = "success";
+                status.textContent = "✅ Portale sigillato e mimetizzato con successo!";
+
+            } catch (e) {
+                status.className = "error";
+                status.textContent = "💥 Errore critico durante la criptazione.";
+                console.error(e);
+            } finally {
+                btn.disabled = false;
+            }
+        };
+
+        function arrayBufferToBase64(buffer) {
+            let binary = '';
+            const bytes = new Uint8Array(buffer);
+            for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+            return window.btoa(binary);
+        }
+
+        function applyTacticalCamouflage(html) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(html);
+    const key = 0x13; 
+    let obfuscatedData = "";
+    for (let i = 0; i < data.length; i++) {
+        obfuscatedData += String.fromCharCode(data[i] ^ key);
+    }
+    const b64 = window.btoa(obfuscatedData);
+
+    // FAVICON ESTRATTA PER RICONOSCIMENTO IMMEDIATO
+    const favicon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAALHRFWHRDcmVhdGlvbiBUaW1lAHZlbiAzMCBnZW4gMjAyNiAyMDo0NDoxOSArMDEwMDF4pbsAAAAHdElNRQfqAR4TLQdWg0k9AAAACXBIWXMAAB7BAAAewQHDaVRTAAAABGdBTUEAALGPC/xhBQAAADpJREFUeNpjyGJg/c+AA8DlahjYwIxdDJz/QRhZDA7+M/L+x8ZmgOmEScAkYWJMDMQCvFbgdSQhbwIASZoik0N5kZ8AAAAASUVORK5CYII=";
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MKInfernalGate &#128271;</title>
+    <link rel="shortcut icon" href="${favicon}" />
+</head>
+<body style="background:#000;">
+    <script type="text/javascript">
+        (function(){
+            try {
+                const b = atob("${b64}");
+                const k = 0x13;
+                const d = new Uint8Array(b.length);
+                for(let i=0; i<b.length; i++) d[i] = b.charCodeAt(i) ^ k;
+                const decoded = new TextDecoder().decode(d);
+                document.open(); 
+                document.write(decoded); 
+                document.close();
+            } catch(e) { 
+                document.body.innerHTML = "<div style='color:red;text-align:center;margin-top:20%;font-family:sans-serif;'><h1>CRITICAL_ERROR</h1>INTEL_CORRUPTED_OR_TAMPERED</div>"; 
+            }
+        })();
+    <\/script>
+</body>
+</html>`;
+}
+
+        function generateOutput(salt, nonce, data, tag, iter) {
+            // Template MKInfernalGate finale richiesto
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAALHRFWHRDcmVhdGlvbiBUaW1lAHZlbiAzMCBnZW4gMjAyNiAyMDo0NDoxOSArMDEwMDF4pbsAAAAHdElNRQfqAR4TLQdWg0k9AAAACXBIWXMAAB7BAAAewQHDaVRTAAAABGdBTUEAALGPC/xhBQAAADpJREFUeNpjyGJg/c+AA8DlahjYwIxdDJz/QRhZDA7+M/L+x8ZmgOmEScAkYWJMDMQCvFbgdSQhbwIASZoik0N5kZ8AAAAASUVORK5CYII=" />
+<title>MKInfernalGate &#128271;</title>
+<style type="text/css">
+html,body{margin:0;height:100%;background:radial-gradient(circle at 50% -20%,#ff1100 0%,#440000 30%,#000 70%),linear-gradient(180deg,rgba(255,0,0,0.15) 0%,transparent 40%),#000;font-family:'Segoe UI',sans-serif;overflow:hidden;color:#ffdddd}
+body{display:flex;justify-content:center;align-items:center}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:150px;background:linear-gradient(to bottom,rgba(255,68,0,0.2),transparent);pointer-events:none;z-index:1;filter:blur(20px)}
+#gate{position:relative;z-index:10;padding:40px 50px;border-radius:16px;background:linear-gradient(180deg,#2b0000,#120000);border:2px solid #ff3300;box-shadow:0 0 30px #ff0000,inset 0 0 40px #000;text-align:center;animation:flicker 2s infinite}
+#gate.shake{animation:shake 0.4s}
+h1{color:#ff4400;text-shadow:0 0 10px #ff0000;margin-top:0}
+input{box-sizing:border-box;width:100%;padding:12px 15px;margin-bottom:20px;border-radius:8px;border:2px solid transparent;background:#2a0000;color:#ffcccc;font-size:1rem;transition:all 0.2s ease-in-out;cursor:text}
+input:focus{outline:none;border-color:#ff3300;box-shadow:0 0 12px #ff4400;background:#330000;color:#fff}
+input::placeholder{color:#ff9999;opacity:0.7}
+input:disabled{background:#1a0000;color:#555;border-color:#330000}
+button{padding:12px 30px;border-radius:10px;border:none;background:linear-gradient(#ff3300,#990000);color:#fff;cursor:pointer;font-weight:bold;text-transform:uppercase;transition:transform 0.1s}
+button:active{transform:scale(0.95)}
+button:disabled{opacity:0.4;cursor:not-allowed}
+#error{color:#ff4444;display:none;margin-top:10px;font-weight:bold}
+#cooldown{color:#ffaa00;display:none;margin-top:10px}
+@keyframes flicker{0%{box-shadow:0 0 20px #ff0000}50%{box-shadow:0 0 40px #ff3300}100%{box-shadow:0 0 20px #ff0000}}
+@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)}}
+#heat{position:fixed;inset:0;backdrop-filter:blur(2px);animation:heat 2s infinite linear;pointer-events:none;z-index:5}
+@keyframes heat{0%{transform:translateY(0)}50%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+#brazier{position:fixed;bottom:0;left:0;width:100%;height:120px;background:radial-gradient(circle at 10% 100%,#ffae00,transparent 60%),radial-gradient(circle at 30% 100%,#ff6600,transparent 65%),radial-gradient(circle at 50% 100%,#ff9900,transparent 60%),radial-gradient(circle at 70% 100%,#ff5500,transparent 65%),radial-gradient(circle at 90% 100%,#ffaa00,transparent 60%);filter:blur(1px);pointer-events:none;z-index:4}
+.particle{position:fixed;bottom:0;width:6px;height:20px;background:radial-gradient(circle,#ff0,#f00);animation:rise 3s infinite;opacity:0;z-index:3}
+@keyframes rise{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-300px);opacity:0}}
+#logo{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:120px;height:120px;z-index:20;pointer-events:none;display:flex;justify-content:center;align-items:center;filter:drop-shadow(0 0 12px #ff6600)}
+</style>
+</head>
+<body>
+<div id="gate">
+<h1>🔥 Infernal Lava Gate 🔥</h1>
+<input style="cursor: text;" type="password" id="pwd" placeholder="Enter Password...">
+<button style="cursor: pointer;" onclick="decrypt()">🌋 <strong><big>Open the Gate</big></strong> 💥</button>
+<div id="error">Access denied!</div>
+</div>
+<div id="heat"></div>
+<div id="brazier"></div>
+<div id="logo">
+<svg viewBox="0 0 200 300" width="72px" height="72px">
+  <defs>
+    <radialGradient id="flameGradient" cx="50%" cy="80%" r="60%" fx="50%" fy="80%"><stop offset="0%" stop-color="#fff8c0"/><stop offset="30%" stop-color="#ffec80"/><stop offset="60%" stop-color="#ff6600"/><stop offset="100%" stop-color="#ff0000"/></radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <radialGradient id="baseGlow" cx="50%" cy="90%" r="60%"><stop offset="0%" stop-color="#ff6600" stop-opacity="0.6"/><stop offset="100%" stop-color="#ff0000" stop-opacity="0"/></radialGradient>
+    <circle id="spark" r="2" fill="#fff8c0"/>
+  </defs>
+  <ellipse cx="100" cy="300" rx="80" ry="25" fill="url(#baseGlow)"/>
+  <path fill="url(#flameGradient)" filter="url(#glow)"><animate attributeName="d" dur="1.5s" repeatCount="indefinite" values="M100,300 C40,220 60,160 90,100 C100,70 110,40 100,20 C90,40 100,70 110,100 C140,160 160,220 100,300 Z;M100,300 C40,220 60,160 90,100 C100,70 110,38 102,18 C90,40 100,70 110,100 C140,160 160,220 100,300 Z;M100,300 C40,220 60,160 90,100 C100,70 110,42 98,22 C90,40 100,70 110,100 C140,160 160,220 100,300 Z;M100,300 C40,220 60,160 90,100 C100,70 110,40 100,20 C90,40 100,70 110,100 C140,160 160,220 100,300 Z"/></path>
+  <use href="#spark"><animateMotion dur="1s" repeatCount="indefinite" path="M100,150 C102,120 98,90 100,60" /><animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite"/></use>
+  <use href="#spark"><animateMotion dur="1.2s" repeatCount="indefinite" path="M110,160 C112,130 108,100 110,70" /><animate attributeName="opacity" values="1;0" dur="1.2s" repeatCount="indefinite"/></use>
+</svg>
+</div>
+<script type="text/javascript">
+"use strict";
+const MAX_ATTEMPTS=7, COOLDOWN_SEC=10, 
+SALT=Uint8Array.from(atob("${salt}"),c=>c.charCodeAt(0)), 
+NONCE=Uint8Array.from(atob("${nonce}"),c=>c.charCodeAt(0)), 
+DATA=Uint8Array.from(atob("${data}"),c=>c.charCodeAt(0)), 
+TAG=Uint8Array.from(atob("${tag}"),c=>c.charCodeAt(0)), 
+ITER=${iter};
+let attempts=0, locked=false, permanentLock=false;
+(function(){ if(!crypto?.subtle)sd(); setInterval(()=>{const t=performance.now(); debugger; if(performance.now()-t>100)sd()},1000); if(!crypto.subtle.decrypt.toString().includes("[native code]"))sd(); Object.freeze(crypto.subtle); })();
+function sd(){ document.body.innerHTML=""; document.body.style.background="black"; throw new Error("SD"); }
+async function decrypt(){
+    if(locked||permanentLock)return;
+    const g=document.getElementById("gate"), p=document.getElementById("pwd"), b=document.querySelector("button"), e=document.getElementById("error");
+    e.style.display="none"; const v=p.value; p.value="";
+    try {
+        const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(v),"PBKDF2",false,["deriveKey"]);
+        const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:SALT,iterations:ITER,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["decrypt"]);
+        const cmb=new Uint8Array(DATA.length+TAG.length); cmb.set(DATA); cmb.set(TAG,DATA.length);
+        const dec=await crypto.subtle.decrypt({name:"AES-GCM",iv:NONCE},key,cmb);
+        document.open(); document.write(new TextDecoder().decode(dec)); document.close();
+    } catch(err) {
+        attempts++; g.classList.add("shake"); setTimeout(()=>g.classList.remove("shake"),400);
+        if(attempts>=MAX_ATTEMPTS){ permanentLock=true; e.textContent="Gate permanently sealed"; e.style.display="block"; b.disabled=true; return; }
+        e.textContent="Access denied"; e.style.display="block";
+        if(attempts%3===0) cd(COOLDOWN_SEC);
+    }
+}
+function cd(s){
+    locked=true; const b=document.querySelector("button"); let c=document.getElementById("cooldown");
+    if(!c){ c=document.createElement("div"); c.id="cooldown"; document.getElementById("gate").appendChild(c); }
+    b.disabled=true; c.style.display="block"; let r=s;
+    const t=setInterval(()=>{ r--; c.textContent="Gate sealed for "+r+"s"; if(r<=0){ clearInterval(t); locked=false; b.disabled=false; c.style.display="none"; }},1000);
+}
+for(let i=0;i<40;i++){ const p=document.createElement("div"); p.className="particle"; p.style.left=Math.random()*100+"%"; p.style.animationDelay=Math.random()*3+"s"; document.body.appendChild(p); }
+<\/script>
+</body>
+</html>`;
+        }
+    })();
+    </script>
+</div>
+
+<br>
+<br>
+
+  </body>
+</html>
