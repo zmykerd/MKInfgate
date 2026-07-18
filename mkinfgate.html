@@ -19,7 +19,51 @@
 		<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAIpAAACKQEamxj2AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAqlJREFUSImllU1IVFEUx3/H+95znHRGTcGKyj4JpAIXVrsWQZsgogzKRbaJog8oahMZU9DK0IUFQouohYtGgrZBRGXt2hmtWkgfQmSONo765r13WqSm+ea9Cf+7e88593/+5557rlAGbp/YuQ/Rl6BDNwc+HCgnZh4VcQ6Z9pZqRB8BlSC7/udwACvOwdjSr7ANQFCjPbSQYHqZo1OXxBRmmZktyDm+lkVw62TLQYWO+XXC8tM4MhyqO5GCGRfERfulX84G5yCmRCKyztgOlu38WUc5LwnUhXuKVKCKWJYNInhFF1VRIA8UlztTObfvEeiDsghEdUnS074ZkwvaFO49ErobStCZubsDP9hbHBlwjOsuqc3pru49iDbnPzYPZrPH/agESxJAkFMIfqTavq0Ze/sGkSQAKi9QbVWb4Wy2PYg7HELurf3JE7N15Hvb2JR7aG2q6pkf6JIsf7n++pmiv6lxlfN6fi/neMN9ly7NlqWg5fP3LWp4tybloPjXK/7ps3RCSCcs4K+AWs/aD7yKVNDZ1X0fpFG0uH1Dfc3udHUNiIbrnoPvB+QLBUYnpoZcrXgr4D28fbVrceBiglGgCa/IxsYUqVXVTE7lIwnm8eXnJL7YADSbKZPJZBbkxc6ilWIxQWzLrYzAyAGgBwkZZLEQBZ6jcmRxeSCkTa/d6W1NVtnvjTH4fnmiJgvuxd4bV+6F2Za1qVVjPosv2SAImPg5dlhLPUZF6xoangKkq5znpcgjB+TRjlOfENkcGhgE04MDj5NR8RAz7OrqatNGwhtN0djPKpYgl8uNg6wuYV4+skMQWqLOru5eQZNefvKYql9fInTWrql9FIj4qfHKy319Zc6iOZxXxDbV6ajkKhXOiEJhtXcDCCUo9ZLdqJP/QTCD5ZUy/gZUPu010dK1UgAAAABJRU5ErkJggg==" />
 
   <body>
+  <style type="text/css">
+  body{
+  background: #050000;
 
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255, 70, 0, .55), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255, 0, 0, .35), transparent 45%),
+    radial-gradient(circle at 50% 75%, rgba(255, 160, 40, .22), transparent 55%),
+    linear-gradient(120deg, #070000 0%, #2a0000 35%, #7a0000 60%, #ff2a00 100%);
+
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%;
+  animation: infernoShift 9s ease-in-out infinite;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: -25%;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(255, 60, 0, .20), transparent 35%),
+    radial-gradient(circle at 65% 35%, rgba(255, 0, 0, .14), transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(255, 170, 60, .12), transparent 45%);
+
+  filter: blur(34px) saturate(1.35);
+  opacity: .95;
+
+  animation: infernoFume 6s ease-in-out infinite alternate;
+}
+
+@keyframes infernoShift{
+  0%   { background-position: 0% 50%, 20% 20%, 50% 70%, 0% 50%; }
+  50%  { background-position: 50% 20%, 70% 40%, 50% 20%, 50% 50%; }
+  100% { background-position: 0% 50%, 20% 20%, 50% 70%, 0% 50%; }
+}
+
+@keyframes infernoFume{
+  0%   { transform: translate(-3%, -2%) scale(1.02); opacity: .75; }
+  100% { transform: translate(3%, 4%) scale(1.06); opacity: .95; }
+}
+
+  </style>
+<center>
 <div id="Infgatewebapp">
     <style type="text/css">
 /* CSS Forge - Versione Atmosfera Compatta */
@@ -835,7 +879,7 @@ for(let i=0;i<40;i++){ const p=document.createElement("div"); p.className="parti
     })();
     </script>
 </div>
-
+</center>
 <br>
 <br>
 
