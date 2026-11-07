@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+<meta http-equiv="content-language" content="it">
+<meta name="googlebot" content="notranslate" />
+<meta name="author" content="zera-mykerd">
+<meta name='owner' content='zera-mykerd'>
+<meta name='reply-to' content='zera0mykerd@gmail.com'>
+<meta name='designer' content='zera-mykerd'>
+<meta name="copyright" content="zera0mykerd" />
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>MKInfgateForge</title>
+		<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAClUlEQVR42rWWS0hUYRTHf2funRmddGZ8RSWVPQnMgqCoXQuhTSDRY+MiV0FESVGb0JiEVkUGFggtohYtHAnaChE9d0ILo1ULsZQEdbR5ODP3u6dFI006o3eMzu473//cc/7/e865V/BgbX3dxxR5rfD+860H7VRgvrUArbFLNYo8BYICB6jQ7LUAYvkHUfYAqGCho60QyCzHRfGFMljZLPk00vbdU4LW290nUDqXzk5VMAL2GMgKbASbHAYQRMcGVfZfXFMiEWn2WzYB2y6cvcmiSLs3iVQlYFsIQs5xQFWBJJAvAQ4W/A64jz0lUPlbCzuTm0EObiqFHS+nQilnV+zePox79BOTIap8j0BwjAH4cTjf3IFoS/JLy3A8fs6ss4vchIJ7bC49+XZj9TtBQr+r0VeoHlI/Y/H4WdfL+1jB4OzQkLV7fPrITCp3cku4+qVx9a8qf+bM1sW82dG0IfB2yZcIOGMDV65kPTFonZjepRYfN4cDKOamb1mfRaqESJUN/CEQdezjwJtVGXT13n0E0iSa37utvvZgpKYWRFelb4xLMp1maj71Pqe+DwLOk77rvcWBxQmmgE04ebY3hQlvqGEhlfTU999mFzDiB6DFSlmxWMz1vIv+1YoTmP+bwJJ24D5CpvLHiAIjqJwqlqdkm964038oVO0ftSwLY7yRWkjnLvf3XHvoqU3tWmtCjMRd12V+dqZDyw2jonWNjS8AItWBESpZFUt2uvP8V0R2lgx03czw82ehf/rg1NVFI5b4yhGwvci3KiiRSMyBNJS5zq9rFxWGrl/QkJNcOKNq6suEZv210aeuiAnPBa8ODHjcRQW7pIjfqomsVlxQ4YIopBucHiBbyV9FroIhcBexnXKXvwBLAOrjSak2gAAAAABJRU5ErkJggg==" />
+
+  <body>
+  <style type="text/css">
+  body{
+  background: #03070a;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(0, 255, 156, .14), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, .10), transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(0, 255, 156, .08), transparent 55%),
+    linear-gradient(rgba(0, 255, 156, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 156, .045) 1px, transparent 1px);
+
+  background-size: 200% 200%, 200% 200%, 200% 200%, 44px 44px, 44px 44px;
+  background-attachment: fixed;
+  animation: cyberShift 14s ease-in-out infinite;
+}
+
+/* vignettatura */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, .7) 100%);
+}
+
+/* scanlines CRT */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,.12) 3px);
+}
+
+@keyframes cyberShift{
+  0%   { background-position: 0% 50%, 100% 50%, 50% 100%, 0 0, 0 0; }
+  50%  { background-position: 60% 30%, 40% 70%, 50% 40%, 0 0, 0 0; }
+  100% { background-position: 0% 50%, 100% 50%, 50% 100%, 0 0, 0 0; }
+}
+
+  </style>
+<center>
+<div id="Infgatewebapp">
+    <style type="text/css">
+/* CSS Forge - Dark Cybersecurity / Hacker Theme */
+#Infgatewebapp {
+    --neon: #00ff9c;
+    --cyan: #00e5ff;
+    --danger: #ff3b5c;
+    --text-main: #b8ffd9;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
+
+    display: inline-block; /* Non occupa più tutta la larghezza */
+    padding: 8px;          /* L'atmosfera di 8px richiesta */
+    border-radius: 10px;
+    background: rgba(0, 255, 156, 0.04);
+    border: 1px dashed rgba(0, 255, 156, 0.25);
+    box-shadow: 0 0 24px rgba(0, 255, 156, 0.12);
+    font-family: var(--mono);
+    color: var(--text-main);
+    margin: 20px;          /* Spazio esterno per non toccare altri elementi */
+}
+
+#Infgatewebapp .forge-card {
+    width: 480px;
+    padding: 40px;
+    background: linear-gradient(145deg, #07110f, #03080a);
+    border: 1px solid var(--neon);
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0, 255, 156, 0.22), inset 0 0 30px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Barra di scansione che attraversa la card */
+#Infgatewebapp .forge-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: -40%;
+    width: 100%; height: 40%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 156, 0.07), transparent);
+    animation: cyber-scan 7s infinite linear;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Angoli stile HUD */
+#Infgatewebapp .forge-card::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    pointer-events: none;
+    opacity: 0.8;
+    background:
+        linear-gradient(var(--neon), var(--neon)) top left / 16px 2px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) top left / 2px 16px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) top right / 16px 2px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) top right / 2px 16px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) bottom left / 16px 2px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) bottom left / 2px 16px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) bottom right / 16px 2px no-repeat,
+        linear-gradient(var(--neon), var(--neon)) bottom right / 2px 16px no-repeat;
+}
+
+@keyframes cyber-scan {
+    from { transform: translateY(0); }
+    to { transform: translateY(350%); }
+}
+
+@keyframes cyber-blink {
+    50% { opacity: 0; }
+}
+
+#Infgatewebapp .flame-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+#Infgatewebapp .ClonedElement { display: flex; }
+
+/* Elementi interni ottimizzati */
+#Infgatewebapp h1 {
+    color: var(--neon);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(0, 255, 156, 0.7);
+    margin-bottom: 25px;
+}
+
+#Infgatewebapp h1::after {
+    content: '_';
+    animation: cyber-blink 1s steps(1) infinite;
+}
+
+#Infgatewebapp .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#Infgatewebapp label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--cyan);
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+#Infgatewebapp label::before {
+    content: '> ';
+    color: var(--neon);
+}
+
+#Infgatewebapp input[type="file"], 
+#Infgatewebapp input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #12372b;
+    background: rgba(1, 8, 6, 0.95);
+    color: var(--neon);
+    caret-color: var(--neon);
+    outline: none;
+    font-size: 0.9rem;
+    font-family: var(--mono);
+}
+
+#Infgatewebapp input::placeholder { color: #3f8f6c; }
+
+#Infgatewebapp input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 6px 12px;
+    border: 1px solid var(--neon);
+    border-radius: 3px;
+    background: rgba(0, 255, 156, 0.08);
+    color: var(--neon);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+#Infgatewebapp input[type="file"]::file-selector-button:hover {
+    background: var(--neon);
+    color: #02110a;
+}
+
+#Infgatewebapp input:focus {
+    border-color: var(--neon);
+    box-shadow: 0 0 8px rgba(0, 255, 156, 0.55);
+}
+
+#Infgatewebapp #forgeBtn {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--neon);
+    border-radius: 4px;
+    background: rgba(0, 255, 156, 0.08);
+    color: var(--neon);
+    font-family: var(--mono);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  /*  cursor: pointer; */
+    transition: all 0.2s;
+    box-shadow: 0 0 12px rgba(0, 255, 156, 0.15);
+}
+
+#Infgatewebapp #forgeBtn:hover:not(:disabled) {
+    background: var(--neon);
+    color: #02110a;
+    box-shadow: 0 0 20px rgba(0, 255, 156, 0.6);
+}
+
+#Infgatewebapp #forgeBtn:active { transform: scale(0.97); }
+
+#Infgatewebapp #forgeBtn:disabled { opacity: 0.5; }
+
+#Infgatewebapp #status {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+        #Infgatewebapp .success { color: #00ff9c; text-shadow: 0 0 6px rgba(0, 255, 156, 0.5); }
+        #Infgatewebapp .error { color: #ff3b5c; }
+
+        #Infgatewebapp .flame-svg {
+            filter: drop-shadow(0 0 10px #00ff9c);
+            margin-bottom: 10px;
+        }
+    </style>
+
+<div class="forge-card">
+        <div class="flame-box">
+		<span class="ClonedElement"></span>
+<svg width="96px" height="96px" viewBox="0 0 96 96" style="filter: drop-shadow(0 0 8px rgba(0,255,156,0.55));">
+  <defs>
+    <linearGradient id="shieldFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ff9c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0.04"/>
+    </linearGradient>
+    <clipPath id="shieldClip">
+      <path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Scudo -->
+  <path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z" fill="url(#shieldFill)" stroke="#00ff9c" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Linee circuito -->
+  <g clip-path="url(#shieldClip)">
+    <g stroke="#00ff9c" stroke-width="1" opacity="0.35" fill="none">
+      <path d="M20 30 H34 L40 36"/>
+      <path d="M76 30 H62 L56 36"/>
+      <path d="M22 70 H36 L42 64"/>
+      <path d="M74 70 H60 L54 64"/>
+    </g>
+    <!-- Linea di scansione -->
+    <line x1="10" x2="86" y1="14" y2="14" stroke="#00e5ff" stroke-width="1.5" opacity="0.8">
+      <animate attributeName="y1" values="14;86;14" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="14;86;14" dur="3.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Lucchetto -->
+  <path d="M38 44 V38 a10 10 0 0 1 20 0 V44" fill="none" stroke="#00ff9c" stroke-width="3" stroke-linecap="round"/>
+  <rect x="32" y="44" width="32" height="24" rx="3" fill="#03110c" stroke="#00ff9c" stroke-width="2"/>
+  <circle cx="48" cy="54" r="3.5" fill="#00e5ff"/>
+  <rect x="46.8" y="55" width="2.4" height="7" rx="1" fill="#00e5ff"/>
+</svg>
+<span class="ClonedElement"></span>
+        </div>
+
+        <h1>MKInfGate Forge</h1>
+
+        <p style="font-size: 0.55rem; color: #7fdcb0; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; margin: -15px 0 25px 0; padding: 10px; border-left: 2px solid #00ff9c; background: rgba(0,255,156,0.05); text-align: left; font-weight: bold;">
+            <span style="color: #00e5ff; display: block; margin-bottom: 3px;">⚠️ BRIEFING OPERATIVO:</span>
+            Soldato! Il tuo intel è sotto minaccia costante. Vuoi blindare i tuoi asset HTML contro infiltrazioni nemiche? Questa forgia trasforma il tuo codice in un bunker d'ossidiana impenetrabile. Neutralizza lo spionaggio, sigilla i segreti e domina il settore (<em>obbligatorio https/ssl/tls</em>). ORDINI CHIARI: CRIPTA O SEI FUORI!
+        </p>
+        
+        <div class="input-group">
+            <label>Sorgente HTML da sigillare:</label>
+            <input type="file" id="fileInput" accept=".html">
+        </div>
+
+        <div class="input-group">
+            <label>Chiave Arcania (Password min. 16 ch):</label>
+            <input type="password" id="passwordInput" placeholder="Inserisci password robusta...">
+        </div>
+
+        <button id="forgeBtn" onclick="forgeGate()">&#127981; FORGIA LA GATE CRITTOGRAFATA</button>
+        <div id="status"></div>
+    </div>
+
+<script type="text/javascript">
+// ─── ANIMAZIONI: iniettate una sola volta nel <head> ───────────────────────
+function injectTorciaStyles() {
+    if (document.getElementById('torcia-keyframes')) return; // già iniettate
+    const style = document.createElement('style');
+    style.id = 'torcia-keyframes';
+    style.textContent = `
+        @keyframes cy-blink {
+            0%, 49%   { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+        @keyframes cy-pulse {
+            0%, 100% { opacity: 0.55; }
+            50%      { opacity: 1; }
+        }
+        .cy-blink { animation: cy-blink 1.1s infinite; }
+        .cy-pulse { animation: cy-pulse 2.4s ease-in-out infinite; }
+    `;
+    document.head.appendChild(style);
+}
+
+// ─── SVG (senza il blocco <style> interno) ──────────────────────────────────
+const elementoDaClonare = `
+<svg width="64px" viewBox="0 0 64 64" style="filter: drop-shadow(0 0 6px rgba(0,255,156,0.45));">
+  <rect x="6" y="10" width="52" height="44" rx="4" fill="#03110c" stroke="#00ff9c" stroke-width="2"/>
+  <line x1="6" y1="20" x2="58" y2="20" stroke="#00ff9c" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="13" cy="15" r="1.8" fill="#00ff9c" opacity="0.9"/>
+  <circle cx="19" cy="15" r="1.8" fill="#00e5ff" opacity="0.6"/>
+  <circle cx="25" cy="15" r="1.8" fill="#00ff9c" opacity="0.35"/>
+  <path d="M14 30 L22 36 L14 42" fill="none" stroke="#00ff9c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect class="cy-blink" x="28" y="40" width="12" height="3" fill="#00e5ff"/>
+  <line class="cy-pulse" x1="28" y1="30" x2="48" y2="30" stroke="#00ff9c" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+</svg>
+`;
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. Inietta i keyframes nel <head> del documento (una volta sola)
+    injectTorciaStyles();
+
+    // 2. Popola tutti i placeholder
+    const placeholders = document.querySelectorAll('.ClonedElement');
+    console.log("Elementi trovati:", placeholders.length);
+
+    if (placeholders.length === 0) {
+        console.warn("Nessun tag con classe 'ClonedElement' trovato.");
+    }
+
+    placeholders.forEach((placeholder, index) => {
+        placeholder.innerHTML = elementoDaClonare;
+        console.log(`Torcia ${index + 1} iniettata con successo!`);
+    });
+});
+</script>
+
+    <script type="text/javascript">
+(function() {
+        "use strict";
+        const PBKDF2_ITER = 1000000;
+
+        window.forgeGate = async function() {
+		
+			if (!window.isSecureContext || !window.crypto.subtle) {
+                alert("ERRORE CRITICO: Questa webapp richiede HTTPS o Localhost per funzionare (Secure Context mancante).");
+                return;
+            }
+		
+            const container = document.getElementById('Infgatewebapp');
+            const fileInput = container.querySelector('#fileInput');
+            const passwordInput = container.querySelector('#passwordInput');
+            const status = container.querySelector('#status');
+            const btn = container.querySelector('#forgeBtn');
+			
+
+            if (!fileInput.files[0] || passwordInput.value.length < 16) {
+                status.className = "error";
+                status.textContent = "Errore: Password troppo corta o file mancante.";
+                return;
+            }
+
+            try {
+                btn.disabled = true;
+                status.className = "";
+                status.textContent = "🔐 Forgiatura in corso (Derivazione AES-256)...";
+
+                const file = fileInput.files[0];
+                const plaintext = new Uint8Array(await file.arrayBuffer());
+                const password = new TextEncoder().encode(passwordInput.value);
+                
+                const salt = window.crypto.getRandomValues(new Uint8Array(16));
+                const nonce = window.crypto.getRandomValues(new Uint8Array(12));
+
+                const baseKey = await window.crypto.subtle.importKey("raw", password, "PBKDF2", false, ["deriveKey"]);
+                const derivedKey = await window.crypto.subtle.deriveKey(
+                    { name: "PBKDF2", salt: salt, iterations: PBKDF2_ITER, hash: "SHA-256" },
+                    baseKey,
+                    { name: "AES-GCM", length: 256 },
+                    false,
+                    ["encrypt"]
+                );
+
+                const encryptedBuffer = await window.crypto.subtle.encrypt(
+                    { name: "AES-GCM", iv: nonce },
+                    derivedKey,
+                    plaintext
+                );
+
+                const ciphertext = new Uint8Array(encryptedBuffer.slice(0, encryptedBuffer.byteLength - 16));
+                const tag = new Uint8Array(encryptedBuffer.slice(encryptedBuffer.byteLength - 16));
+                
+                // 1. GENERAZIONE OUTPUT BASE
+                const rawHtml = generateOutput(
+                    arrayBufferToBase64(salt),
+                    arrayBufferToBase64(nonce),
+                    arrayBufferToBase64(ciphertext),
+                    arrayBufferToBase64(tag),
+                    PBKDF2_ITER
+                );
+
+                // 2. APPLICAZIONE OFFUSCAMENTO (Tactical Camouflage)
+                status.textContent = "🛡️ Applicando mimetizzazione tattica (Obfuscation)...";
+                const finalObfuscatedHtml = applyTacticalCamouflage(rawHtml);
+
+                // 3. CREAZIONE BLOB E DOWNLOAD UNICO
+                const blob = new Blob([finalObfuscatedHtml], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `gate_${file.name}`;
+                a.click();
+
+                status.className = "success";
+                status.textContent = "✅ Portale sigillato e mimetizzato con successo!";
+
+            } catch (e) {
+                status.className = "error";
+                status.textContent = "⛔ Errore critico durante la criptazione.";
+                console.error(e);
+            } finally {
+                btn.disabled = false;
+            }
+        };
+
+        function arrayBufferToBase64(buffer) {
+            let binary = '';
+            const bytes = new Uint8Array(buffer);
+            for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+            return window.btoa(binary);
+        }
+
+        function applyTacticalCamouflage(html) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(html);
+    const key = 0x13; 
+    let obfuscatedData = "";
+    for (let i = 0; i < data.length; i++) {
+        obfuscatedData += String.fromCharCode(data[i] ^ key);
+    }
+    const b64 = window.btoa(obfuscatedData);
+
+    // FAVICON ESTRATTA PER RICONOSCIMENTO IMMEDIATO
+    const favicon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOElEQVR42mNgyNL4z4ALwOVq9CGMXe7/GXa5/0cRg4P/Sf+xsuE6YRIwSagYEwPRAK8VeB1JwJsArLgnL1iWS3IAAAAASUVORK5CYII=";
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MKInfernalGate &#128271;</title>
+    <link rel="shortcut icon" href="${favicon}" />
+</head>
+<body style="background:#000;">
+    <script type="text/javascript">
+        (function(){
+            try {
+                const b = atob("${b64}");
+                const k = 0x13;
+                const d = new Uint8Array(b.length);
+                for(let i=0; i<b.length; i++) d[i] = b.charCodeAt(i) ^ k;
+                const decoded = new TextDecoder().decode(d);
+                document.open(); 
+                document.write(decoded); 
+                document.close();
+            } catch(e) { 
+                document.body.innerHTML = "<div style='color:#ff3b5c;text-align:center;margin-top:20%;font-family:monospace;'><h1>CRITICAL_ERROR</h1>INTEL_CORRUPTED_OR_TAMPERED</div>"; 
+            }
+        })();
+    <\/script>
+</body>
+</html>`;
+}
+
+        function generateOutput(salt, nonce, data, tag, iter) {
+            // Template MKInfernalGate finale richiesto
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOElEQVR42mNgyNL4z4ALwOVq9CGMXe7/GXa5/0cRg4P/Sf+xsuE6YRIwSagYEwPRAK8VeB1JwJsArLgnL1iWS3IAAAAASUVORK5CYII=" />
+<title>MKInfernalGate &#128271;</title>
+<style type="text/css">
+html{height:100%;background:#03070a}
+body{background:radial-gradient(circle at 50% -10%,rgba(0,255,156,0.16) 0%,transparent 55%),linear-gradient(rgba(0,255,156,0.05) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,255,156,0.05) 1px,transparent 1px) 0 0/40px 40px,#03070a !important}
+html,body{margin:0;height:100%;font-family:'JetBrains Mono','Fira Code','Cascadia Code',Consolas,'Courier New',monospace;overflow:hidden;color:#b8ffd9}
+body{display:flex;justify-content:center;align-items:center}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:150px;background:linear-gradient(to bottom,rgba(0,229,255,0.14),transparent);pointer-events:none;z-index:1;filter:blur(20px)}
+#gate{position:relative;z-index:10;padding:40px 50px;border-radius:6px;background:linear-gradient(180deg,rgba(7,17,15,0.96),rgba(3,8,10,0.96));border:1px solid #00ff9c;box-shadow:0 0 30px rgba(0,255,156,0.35),inset 0 0 40px #000;text-align:center;animation:flicker 2s infinite}
+#gate::after{content:"";position:absolute;top:6px;left:6px;right:6px;bottom:6px;pointer-events:none;opacity:0.8;background:linear-gradient(#00ff9c,#00ff9c) top left/14px 2px no-repeat,linear-gradient(#00ff9c,#00ff9c) top left/2px 14px no-repeat,linear-gradient(#00ff9c,#00ff9c) top right/14px 2px no-repeat,linear-gradient(#00ff9c,#00ff9c) top right/2px 14px no-repeat,linear-gradient(#00ff9c,#00ff9c) bottom left/14px 2px no-repeat,linear-gradient(#00ff9c,#00ff9c) bottom left/2px 14px no-repeat,linear-gradient(#00ff9c,#00ff9c) bottom right/14px 2px no-repeat,linear-gradient(#00ff9c,#00ff9c) bottom right/2px 14px no-repeat}
+#gate.shake{animation:shake 0.4s}
+h1{color:#00ff9c;text-shadow:0 0 10px rgba(0,255,156,0.7);margin-top:0;letter-spacing:2px;text-transform:uppercase}
+h1::after{content:"_";animation:blink 1s steps(1) infinite}
+input{box-sizing:border-box;width:100%;padding:12px 15px;margin-bottom:20px;border-radius:4px;border:1px solid #12372b;background:#02080a;color:#00ff9c;caret-color:#00ff9c;font-family:inherit;font-size:1rem;transition:all 0.2s ease-in-out;cursor:text}
+input:focus{outline:none;border-color:#00ff9c;box-shadow:0 0 12px rgba(0,255,156,0.55);background:#031410;color:#d6ffe9}
+input::placeholder{color:#3f8f6c;opacity:0.9}
+input:disabled{background:#02080a;color:#555;border-color:#12372b}
+button{padding:12px 30px;border-radius:4px;border:1px solid #00ff9c;background:rgba(0,255,156,0.08);color:#00ff9c;cursor:pointer;font-family:inherit;font-weight:bold;text-transform:uppercase;letter-spacing:1px;transition:all 0.2s}
+button:hover:not(:disabled){background:#00ff9c;color:#02110a;box-shadow:0 0 18px rgba(0,255,156,0.6)}
+button:active{transform:scale(0.95)}
+button:disabled{opacity:0.4;cursor:not-allowed}
+#error{color:#ff3b5c;display:none;margin-top:10px;font-weight:bold}
+#cooldown{color:#ffd400;display:none;margin-top:10px}
+@keyframes flicker{0%{box-shadow:0 0 20px rgba(0,255,156,0.3),inset 0 0 40px #000}50%{box-shadow:0 0 40px rgba(0,255,156,0.55),inset 0 0 40px #000}100%{box-shadow:0 0 20px rgba(0,255,156,0.3),inset 0 0 40px #000}}
+@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)}}
+@keyframes blink{50%{opacity:0}}
+#heat{position:fixed;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(to bottom,rgba(0,255,156,0.04) 0,rgba(0,255,156,0.04) 1px,transparent 1px,transparent 3px);animation:heat 2s infinite linear;pointer-events:none;z-index:5}
+@keyframes heat{from{background-position:0 0}to{background-position:0 3px}}
+#brazier{position:fixed;bottom:0;left:0;width:100%;height:120px;background:linear-gradient(to top,rgba(0,255,156,0.18),transparent),repeating-linear-gradient(90deg,rgba(0,255,156,0.08) 0,rgba(0,255,156,0.08) 1px,transparent 1px,transparent 40px);pointer-events:none;z-index:4}
+.particle{position:fixed;top:-80px;width:2px;height:50px;background:linear-gradient(to bottom,transparent,#00ff9c);animation:fall 3s linear infinite;opacity:0;z-index:3}
+.particle:nth-child(3n){height:70px;animation-duration:4.2s}
+.particle:nth-child(4n+1){height:32px;animation-duration:2.4s}
+.particle:nth-child(5n){background:linear-gradient(to bottom,transparent,#00e5ff)}
+@keyframes fall{0%{transform:translateY(0);opacity:0}15%{opacity:0.8}100%{transform:translateY(110vh);opacity:0}}
+#logo{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:120px;height:120px;z-index:20;pointer-events:none;display:flex;justify-content:center;align-items:center;filter:drop-shadow(0 0 12px rgba(0,255,156,0.7))}
+</style>
+</head>
+<body>
+<div id="gate">
+<h1>🔐 Infernal Lava Gate 🔐</h1>
+<input style="cursor: text;" type="password" id="pwd" placeholder="Enter Password...">
+<button style="cursor: pointer;" onclick="decrypt()">🔓 <strong><big>Open the Gate</big></strong> ⚡</button>
+<div id="error">Access denied!</div>
+</div>
+<div id="heat"></div>
+<div id="brazier"></div>
+<div id="logo">
+<svg viewBox="0 0 96 96" width="72px" height="72px">
+  <defs>
+    <linearGradient id="shieldFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00ff9c" stop-opacity="0.18"/><stop offset="100%" stop-color="#00e5ff" stop-opacity="0.04"/></linearGradient>
+    <clipPath id="shieldClip"><path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z"/></clipPath>
+  </defs>
+  <path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z" fill="url(#shieldFill)" stroke="#00ff9c" stroke-width="2" stroke-linejoin="round"/>
+  <g clip-path="url(#shieldClip)">
+    <g stroke="#00ff9c" stroke-width="1" opacity="0.35" fill="none"><path d="M20 30 H34 L40 36"/><path d="M76 30 H62 L56 36"/><path d="M22 70 H36 L42 64"/><path d="M74 70 H60 L54 64"/></g>
+    <line x1="10" x2="86" y1="14" y2="14" stroke="#00e5ff" stroke-width="1.5" opacity="0.8"><animate attributeName="y1" values="14;86;14" dur="3.5s" repeatCount="indefinite"/><animate attributeName="y2" values="14;86;14" dur="3.5s" repeatCount="indefinite"/></line>
+  </g>
+  <path d="M38 44 V38 a10 10 0 0 1 20 0 V44" fill="none" stroke="#00ff9c" stroke-width="3" stroke-linecap="round"/>
+  <rect x="32" y="44" width="32" height="24" rx="3" fill="#03110c" stroke="#00ff9c" stroke-width="2"/>
+  <circle cx="48" cy="54" r="3.5" fill="#00e5ff"/>
+  <rect x="46.8" y="55" width="2.4" height="7" rx="1" fill="#00e5ff"/>
+</svg>
+</div>
+<script type="text/javascript">
+"use strict";
+const MAX_ATTEMPTS=7, COOLDOWN_SEC=10, 
+SALT=Uint8Array.from(atob("${salt}"),c=>c.charCodeAt(0)), 
+NONCE=Uint8Array.from(atob("${nonce}"),c=>c.charCodeAt(0)), 
+DATA=Uint8Array.from(atob("${data}"),c=>c.charCodeAt(0)), 
+TAG=Uint8Array.from(atob("${tag}"),c=>c.charCodeAt(0)), 
+ITER=${iter};
+let attempts=0, locked=false, permanentLock=false;
+(function(){ if(!crypto?.subtle)sd(); setInterval(()=>{const t=performance.now(); debugger; if(performance.now()-t>100)sd()},1000); if(!crypto.subtle.decrypt.toString().includes("[native code]"))sd(); Object.freeze(crypto.subtle); })();
+function sd(){ document.body.innerHTML=""; document.body.style.background="black"; throw new Error("SD"); }
+async function decrypt(){
+    if(locked||permanentLock)return;
+    const g=document.getElementById("gate"), p=document.getElementById("pwd"), b=document.querySelector("button"), e=document.getElementById("error");
+    e.style.display="none"; const v=p.value; p.value="";
+    try {
+        const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(v),"PBKDF2",false,["deriveKey"]);
+        const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:SALT,iterations:ITER,hash:"SHA-256"},km,{name:"AES-GCM",length:256},false,["decrypt"]);
+        const cmb=new Uint8Array(DATA.length+TAG.length); cmb.set(DATA); cmb.set(TAG,DATA.length);
+        const dec=await crypto.subtle.decrypt({name:"AES-GCM",iv:NONCE},key,cmb);
+        document.open(); document.write(new TextDecoder().decode(dec)); document.close();
+    } catch(err) {
+        attempts++; g.classList.add("shake"); setTimeout(()=>g.classList.remove("shake"),400);
+        if(attempts>=MAX_ATTEMPTS){ permanentLock=true; e.textContent="Gate permanently sealed"; e.style.display="block"; b.disabled=true; return; }
+        e.textContent="Access denied"; e.style.display="block";
+        if(attempts%3===0) cd(COOLDOWN_SEC);
+    }
+}
+function cd(s){
+    locked=true; const b=document.querySelector("button"); let c=document.getElementById("cooldown");
+    if(!c){ c=document.createElement("div"); c.id="cooldown"; document.getElementById("gate").appendChild(c); }
+    b.disabled=true; c.style.display="block"; let r=s;
+    const t=setInterval(()=>{ r--; c.textContent="Gate sealed for "+r+"s"; if(r<=0){ clearInterval(t); locked=false; b.disabled=false; c.style.display="none"; }},1000);
+}
+for(let i=0;i<40;i++){ const p=document.createElement("div"); p.className="particle"; p.style.left=Math.random()*100+"%"; p.style.animationDelay=Math.random()*3+"s"; document.body.appendChild(p); }
+<\/script>
+</body>
+</html>`;
+        }
+    })();
+    </script>
+</div>
+</center>
+<br>
+<br>
+
+  </body>
+</html>
