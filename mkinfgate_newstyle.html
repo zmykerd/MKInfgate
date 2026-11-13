@@ -8,18 +8,15 @@
 <meta name='reply-to' content='zera0mykerd@gmail.com'>
 <meta name='designer' content='zera-mykerd'>
 <meta name="copyright" content="zera0mykerd" />
-
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>MKMatrixGateForge</title>
+<title>MKMatrixGateForge</title>
 		<link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAClUlEQVR42rWWS0hUYRTHf2funRmddGZ8RSWVPQnMgqCoXQuhTSDRY+MiV0FESVGb0JiEVkUGFggtohYtHAnaChE9d0ILo1ULsZQEdbR5ODP3u6dFI006o3eMzu473//cc/7/e865V/BgbX3dxxR5rfD+860H7VRgvrUArbFLNYo8BYICB6jQ7LUAYvkHUfYAqGCho60QyCzHRfGFMljZLPk00vbdU4LW290nUDqXzk5VMAL2GMgKbASbHAYQRMcGVfZfXFMiEWn2WzYB2y6cvcmiSLs3iVQlYFsIQs5xQFWBJJAvAQ4W/A64jz0lUPlbCzuTm0EObiqFHS+nQilnV+zePox79BOTIap8j0BwjAH4cTjf3IFoS/JLy3A8fs6ss4vchIJ7bC49+XZj9TtBQr+r0VeoHlI/Y/H4WdfL+1jB4OzQkLV7fPrITCp3cku4+qVx9a8qf+bM1sW82dG0IfB2yZcIOGMDV65kPTFonZjepRYfN4cDKOamb1mfRaqESJUN/CEQdezjwJtVGXT13n0E0iSa37utvvZgpKYWRFelb4xLMp1maj71Pqe+DwLOk77rvcWBxQmmgE04ebY3hQlvqGEhlfTU999mFzDiB6DFSlmxWMz1vIv+1YoTmP+bwJJ24D5CpvLHiAIjqJwqlqdkm964038oVO0ftSwLY7yRWkjnLvf3XHvoqU3tWmtCjMRd12V+dqZDyw2jonWNjS8AItWBESpZFUt2uvP8V0R2lgx03czw82ehf/rg1NVFI5b4yhGwvci3KiiRSMyBNJS5zq9rFxWGrl/QkJNcOKNq6suEZv210aeuiAnPBa8ODHjcRQW7pIjfqomsVlxQ4YIopBucHiBbyV9FroIhcBexnXKXvwBLAOrjSak2gAAAAABJRU5ErkJggg==" />
-
   <body>
-  <style type="text/css">
+<style type="text/css">
   body{
   background: #03070a;
   background-image:
@@ -28,13 +25,10 @@
     radial-gradient(circle at 50% 85%, rgba(0, 255, 156, .08), transparent 55%),
     linear-gradient(rgba(0, 255, 156, .045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 156, .045) 1px, transparent 1px);
-
   background-size: 200% 200%, 200% 200%, 200% 200%, 44px 44px, 44px 44px;
   background-attachment: fixed;
   animation: cyberShift 14s ease-in-out infinite;
 }
-
-/* vignettatura */
 body::before{
   content:"";
   position: fixed;
@@ -43,8 +37,6 @@ body::before{
   z-index: -1;
   background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, .7) 100%);
 }
-
-/* scanlines CRT */
 body::after{
   content:"";
   position: fixed;
@@ -53,36 +45,31 @@ body::after{
   z-index: 9999;
   background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,.12) 3px);
 }
-
 @keyframes cyberShift{
   0%   { background-position: 0% 50%, 100% 50%, 50% 100%, 0 0, 0 0; }
   50%  { background-position: 60% 30%, 40% 70%, 50% 40%, 0 0, 0 0; }
   100% { background-position: 0% 50%, 100% 50%, 50% 100%, 0 0, 0 0; }
 }
-
   </style>
 <center>
 <div id="Infgatewebapp">
     <style type="text/css">
-/* CSS Forge - Dark Cybersecurity / Hacker Theme */
 #Infgatewebapp {
     --neon: #00ff9c;
     --cyan: #00e5ff;
     --danger: #ff3b5c;
     --text-main: #b8ffd9;
     --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
-
-    display: inline-block; /* Non occupa più tutta la larghezza */
-    padding: 8px;          /* L'atmosfera di 8px richiesta */
+    display: inline-block;
+    padding: 8px;
     border-radius: 10px;
     background: rgba(0, 255, 156, 0.04);
     border: 1px dashed rgba(0, 255, 156, 0.25);
     box-shadow: 0 0 24px rgba(0, 255, 156, 0.12);
     font-family: var(--mono);
     color: var(--text-main);
-    margin: 20px;          /* Spazio esterno per non toccare altri elementi */
+    margin: 20px;
 }
-
 #Infgatewebapp .forge-card {
     width: 480px;
     padding: 40px;
@@ -95,8 +82,6 @@ body::after{
     overflow: hidden;
     z-index: 1;
 }
-
-/* Barra di scansione che attraversa la card */
 #Infgatewebapp .forge-card::before {
     content: '';
     position: absolute;
@@ -107,8 +92,6 @@ body::after{
     pointer-events: none;
     z-index: -1;
 }
-
-/* Angoli stile HUD */
 #Infgatewebapp .forge-card::after {
     content: '';
     position: absolute;
@@ -125,26 +108,20 @@ body::after{
         linear-gradient(var(--neon), var(--neon)) bottom right / 16px 2px no-repeat,
         linear-gradient(var(--neon), var(--neon)) bottom right / 2px 16px no-repeat;
 }
-
 @keyframes cyber-scan {
     from { transform: translateY(0); }
     to { transform: translateY(350%); }
 }
-
 @keyframes cyber-blink {
     50% { opacity: 0; }
 }
-
 #Infgatewebapp .flame-box {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
 }
-
 #Infgatewebapp .ClonedElement { display: flex; }
-
-/* Elementi interni ottimizzati */
 #Infgatewebapp h1 {
     color: var(--neon);
     font-size: 1.5rem;
@@ -153,7 +130,6 @@ body::after{
     text-shadow: 0 0 10px rgba(0, 255, 156, 0.7);
     margin-bottom: 25px;
 }
-
 #Infgatewebapp h1::after {
     content: '_';
     animation: cyber-blink 1s steps(1) infinite;
@@ -163,7 +139,6 @@ body::after{
     margin-bottom: 20px;
     text-align: left;
 }
-
 #Infgatewebapp label {
     display: block;
     margin-bottom: 6px;
@@ -172,12 +147,10 @@ body::after{
     font-size: 0.8rem;
     letter-spacing: 0.5px;
 }
-
 #Infgatewebapp label::before {
     content: '> ';
     color: var(--neon);
 }
-
 #Infgatewebapp input[type="file"], 
 #Infgatewebapp input[type="password"] {
     width: 100%;
@@ -192,9 +165,7 @@ body::after{
     font-size: 0.9rem;
     font-family: var(--mono);
 }
-
 #Infgatewebapp input::placeholder { color: #3f8f6c; }
-
 #Infgatewebapp input[type="file"]::file-selector-button {
     margin-right: 12px;
     padding: 6px 12px;
@@ -206,17 +177,14 @@ body::after{
     font-size: 0.8rem;
     transition: all 0.2s;
 }
-
 #Infgatewebapp input[type="file"]::file-selector-button:hover {
     background: var(--neon);
     color: #02110a;
 }
-
 #Infgatewebapp input:focus {
     border-color: var(--neon);
     box-shadow: 0 0 8px rgba(0, 255, 156, 0.55);
 }
-
 #Infgatewebapp #forgeBtn {
     width: 100%;
     padding: 16px;
@@ -232,23 +200,18 @@ body::after{
     transition: all 0.2s;
     box-shadow: 0 0 12px rgba(0, 255, 156, 0.15);
 }
-
 #Infgatewebapp #forgeBtn:hover:not(:disabled) {
     background: var(--neon);
     color: #02110a;
     box-shadow: 0 0 20px rgba(0, 255, 156, 0.6);
 }
-
 #Infgatewebapp #forgeBtn:active { transform: scale(0.97); }
-
 #Infgatewebapp #forgeBtn:disabled { opacity: 0.5; }
-
 #Infgatewebapp #status {
     margin-top: 15px;
     font-size: 0.85rem;
     font-weight: bold;
 }
-
         #Infgatewebapp .success { color: #00ff9c; text-shadow: 0 0 6px rgba(0, 255, 156, 0.5); }
         #Infgatewebapp .error { color: #ff3b5c; }
 
@@ -256,8 +219,7 @@ body::after{
             filter: drop-shadow(0 0 10px #00ff9c);
             margin-bottom: 10px;
         }
-    </style>
-
+</style>
 <div class="forge-card">
         <div class="flame-box">
 		<span class="ClonedElement"></span>
@@ -271,11 +233,7 @@ body::after{
       <path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z"/>
     </clipPath>
   </defs>
-
-  <!-- Scudo -->
   <path d="M48 6 L82 19 V46 C82 66 68 80 48 90 C28 80 14 66 14 46 V19 Z" fill="url(#shieldFill)" stroke="#00ff9c" stroke-width="2" stroke-linejoin="round"/>
-
-  <!-- Linee circuito -->
   <g clip-path="url(#shieldClip)">
     <g stroke="#00ff9c" stroke-width="1" opacity="0.35" fill="none">
       <path d="M20 30 H34 L40 36"/>
@@ -283,14 +241,11 @@ body::after{
       <path d="M22 70 H36 L42 64"/>
       <path d="M74 70 H60 L54 64"/>
     </g>
-    <!-- Linea di scansione -->
     <line x1="10" x2="86" y1="14" y2="14" stroke="#00e5ff" stroke-width="1.5" opacity="0.8">
       <animate attributeName="y1" values="14;86;14" dur="3.5s" repeatCount="indefinite"/>
       <animate attributeName="y2" values="14;86;14" dur="3.5s" repeatCount="indefinite"/>
     </line>
   </g>
-
-  <!-- Lucchetto -->
   <path d="M38 44 V38 a10 10 0 0 1 20 0 V44" fill="none" stroke="#00ff9c" stroke-width="3" stroke-linecap="round"/>
   <rect x="32" y="44" width="32" height="24" rx="3" fill="#03110c" stroke="#00ff9c" stroke-width="2"/>
   <circle cx="48" cy="54" r="3.5" fill="#00e5ff"/>
@@ -298,32 +253,25 @@ body::after{
 </svg>
 <span class="ClonedElement"></span>
         </div>
-
         <h1>MKMatrixGate Forge</h1>
-
         <p style="font-size: 0.55rem; color: #7fdcb0; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; margin: -15px 0 25px 0; padding: 10px; border-left: 2px solid #00ff9c; background: rgba(0,255,156,0.05); text-align: left; font-weight: bold;">
             <span style="color: #00e5ff; display: block; margin-bottom: 3px;">⚠️ BRIEFING OPERATIVO:</span>
             Soldato! Il tuo intel è sotto minaccia costante. Vuoi blindare i tuoi asset HTML contro infiltrazioni nemiche? Questa forgia trasforma il tuo codice in un bunker d'ossidiana impenetrabile. Neutralizza lo spionaggio, sigilla i segreti e domina il settore (<em>obbligatorio https/ssl/tls</em>). ORDINI CHIARI: CRIPTA O SEI FUORI!
         </p>
-        
         <div class="input-group">
             <label>Sorgente HTML da sigillare:</label>
             <input type="file" id="fileInput" accept=".html">
         </div>
-
         <div class="input-group">
             <label>Chiave Arcania (Password min. 16 ch):</label>
             <input type="password" id="passwordInput" placeholder="Inserisci password robusta...">
         </div>
-
         <button id="forgeBtn" onclick="forgeGate()">&#127981; FORGIA LA GATE CRITTOGRAFATA</button>
         <div id="status"></div>
     </div>
-
 <script type="text/javascript">
-// ─── ANIMAZIONI: iniettate una sola volta nel <head> ───────────────────────
 function injectTorciaStyles() {
-    if (document.getElementById('torcia-keyframes')) return; // già iniettate
+    if (document.getElementById('torcia-keyframes')) return;
     const style = document.createElement('style');
     style.id = 'torcia-keyframes';
     style.textContent = `
@@ -341,7 +289,6 @@ function injectTorciaStyles() {
     document.head.appendChild(style);
 }
 
-// ─── SVG (senza il blocco <style> interno) ──────────────────────────────────
 const elementoDaClonare = `
 <svg width="64px" viewBox="0 0 64 64" style="filter: drop-shadow(0 0 6px rgba(0,255,156,0.45));">
   <rect x="6" y="10" width="52" height="44" rx="4" fill="#03110c" stroke="#00ff9c" stroke-width="2"/>
@@ -355,20 +302,14 @@ const elementoDaClonare = `
 </svg>
 `;
 
-// ─── INIT ───────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", function () {
-
-    // 1. Inietta i keyframes nel <head> del documento (una volta sola)
     injectTorciaStyles();
-
-    // 2. Popola tutti i placeholder
     const placeholders = document.querySelectorAll('.ClonedElement');
     console.log("Elementi trovati:", placeholders.length);
 
     if (placeholders.length === 0) {
         console.warn("Nessun tag con classe 'ClonedElement' trovato.");
     }
-
     placeholders.forEach((placeholder, index) => {
         placeholder.innerHTML = elementoDaClonare;
         console.log(`Torcia ${index + 1} iniettata con successo!`);
@@ -380,39 +321,30 @@ document.addEventListener("DOMContentLoaded", function () {
 (function() {
         "use strict";
         const PBKDF2_ITER = 1000000;
-
         window.forgeGate = async function() {
-		
 			if (!window.isSecureContext || !window.crypto.subtle) {
                 alert("ERRORE CRITICO: Questa webapp richiede HTTPS o Localhost per funzionare (Secure Context mancante).");
                 return;
             }
-		
             const container = document.getElementById('Infgatewebapp');
             const fileInput = container.querySelector('#fileInput');
             const passwordInput = container.querySelector('#passwordInput');
             const status = container.querySelector('#status');
             const btn = container.querySelector('#forgeBtn');
-			
-
             if (!fileInput.files[0] || passwordInput.value.length < 16) {
                 status.className = "error";
                 status.textContent = "Errore: Password troppo corta o file mancante.";
                 return;
             }
-
             try {
                 btn.disabled = true;
                 status.className = "";
                 status.textContent = "🔐 Forgiatura in corso (Derivazione AES-256)...";
-
                 const file = fileInput.files[0];
                 const plaintext = new Uint8Array(await file.arrayBuffer());
                 const password = new TextEncoder().encode(passwordInput.value);
-                
                 const salt = window.crypto.getRandomValues(new Uint8Array(16));
                 const nonce = window.crypto.getRandomValues(new Uint8Array(12));
-
                 const baseKey = await window.crypto.subtle.importKey("raw", password, "PBKDF2", false, ["deriveKey"]);
                 const derivedKey = await window.crypto.subtle.deriveKey(
                     { name: "PBKDF2", salt: salt, iterations: PBKDF2_ITER, hash: "SHA-256" },
@@ -421,17 +353,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     false,
                     ["encrypt"]
                 );
-
                 const encryptedBuffer = await window.crypto.subtle.encrypt(
                     { name: "AES-GCM", iv: nonce },
                     derivedKey,
                     plaintext
                 );
-
                 const ciphertext = new Uint8Array(encryptedBuffer.slice(0, encryptedBuffer.byteLength - 16));
                 const tag = new Uint8Array(encryptedBuffer.slice(encryptedBuffer.byteLength - 16));
-                
-                // 1. GENERAZIONE OUTPUT BASE
                 const rawHtml = generateOutput(
                     arrayBufferToBase64(salt),
                     arrayBufferToBase64(nonce),
@@ -439,22 +367,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     arrayBufferToBase64(tag),
                     PBKDF2_ITER
                 );
-
-                // 2. APPLICAZIONE OFFUSCAMENTO (Tactical Camouflage)
                 status.textContent = "🛡️ Applicando mimetizzazione tattica (Obfuscation)...";
                 const finalObfuscatedHtml = applyTacticalCamouflage(rawHtml);
-
-                // 3. CREAZIONE BLOB E DOWNLOAD UNICO
                 const blob = new Blob([finalObfuscatedHtml], { type: 'text/html' });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = `gate_${file.name}`;
                 a.click();
-
                 status.className = "success";
                 status.textContent = "✅ Portale sigillato e mimetizzato con successo!";
-
             } catch (e) {
                 status.className = "error";
                 status.textContent = "⛔ Errore critico durante la criptazione.";
@@ -463,14 +385,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 btn.disabled = false;
             }
         };
-
         function arrayBufferToBase64(buffer) {
             let binary = '';
             const bytes = new Uint8Array(buffer);
             for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
             return window.btoa(binary);
         }
-
         function applyTacticalCamouflage(html) {
     const encoder = new TextEncoder();
     const data = encoder.encode(html);
@@ -480,16 +400,13 @@ document.addEventListener("DOMContentLoaded", function () {
         obfuscatedData += String.fromCharCode(data[i] ^ key);
     }
     const b64 = window.btoa(obfuscatedData);
-
-    // FAVICON ESTRATTA PER RICONOSCIMENTO IMMEDIATO
     const favicon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAOElEQVR42mNgyNL4z4ALwOVq9CGMXe7/GXa5/0cRg4P/Sf+xsuE6YRIwSagYEwPRAK8VeB1JwJsArLgnL1iWS3IAAAAASUVORK5CYII=";
-
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>MKMatrixGate &#128271;</title>
+    <title>MKMatrixerGate &#128271;</title>
     <link rel="shortcut icon" href="${favicon}" />
 </head>
 <body style="background:#000;">
@@ -512,9 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 </html>`;
 }
-
         function generateOutput(salt, nonce, data, tag, iter) {
-            // Template MKMatrixGate finale richiesto
             return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -628,6 +543,5 @@ for(let i=0;i<40;i++){ const p=document.createElement("div"); p.className="parti
 </center>
 <br>
 <br>
-
   </body>
 </html>
